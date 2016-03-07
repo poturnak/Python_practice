@@ -89,8 +89,19 @@ def automobile(model, year, **metadata):
 
 automobile('vw', 2009, color = 'red')
 
-# you can inport the function in 2 wasy
-# 1. you can import the whoel module" import module_name, then use module_name.fucntion_name() to call function
+# you can inport the function in 2 ways
+# 1. you can import the whole module" import module_name, then use module_name.fucntion_name() to call function
 # 2. You can import specific function from module_name import function_name 1, function_name 2
 # For conflicting names, you can giev a funciton a name: from module import function_name as alias
 # You can also import a module with an alias: import module_name as alias
+
+# Sometimes you want to modify the global variable within the function
+# For that you need to use 'global' within the function
+
+testing_var = 100
+def testing():
+    global testing_var
+    testing_var += 1
+
+testing()
+print(testing_var)
