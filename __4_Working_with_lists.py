@@ -96,3 +96,59 @@ print(list3)
 listing.append('hello')
 print(listing)
 print(list3)
+
+# If list contains a list you can use double index
+
+alpha = [[11,12,13], 55, [11,66,77]]
+print(alpha[2][2])
+
+# For list concatenation you can just add the list to another list
+
+alpha = alpha + [333, 444]
+print(alpha)
+
+# You can also identify the index of a certain item in the list using the index() method
+
+index = alpha.index(55)
+print(index)
+
+# del will remove the item in the list based on the index
+# del alpha[1] (with index 1)
+# remove will remove the item in the list based on its value
+# alpha.remove('cat')
+
+# sort method sorts items in the list
+
+listt = [5,6,7,3,4,5,8,12,55]
+listt.sort()
+print(listt)
+
+listt.sort(reverse=True)
+print(listt)
+
+# you can use functions list() and tuple() to convert things into list or tuple
+value = list('hello')
+print(value)
+
+# List are different than variables
+# When you create a variable, say num = 6 you pass the value of 6 to num
+# When you create a list, list = [1,2,3], list will store the reference to list [1,2,3]
+# if you do list = list1, both variables will refer to the same list
+# keep this in mind when you pass list to functions.
+# in this case the reference will be passed, and the list will be modified as a result in the global space
+
+# there is a copy module that will allow to copy list, but not its refence
+
+import copy
+
+list_original = [1,2,3,4,5]
+list_copy = copy.copy(list_original)
+
+list_original.remove(3)
+print(list_original)
+print(list_copy)
+
+# In this case the list_copy is not changed because copy.copy() is used
+# If multiple lists are used within the list you need to use copy.deepcopy()
+# alternatively you can use list1 = list1[:]
+
