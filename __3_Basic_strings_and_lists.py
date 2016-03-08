@@ -1,4 +1,17 @@
+#! /Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5
+
+#  - indexing with string[0:1]
+#  - check 'abs" in/not in string
+#  upper(), lower(), isupper(), islower(), capitalize(), title() - check lower, upper letters
+#  isalpha(), isalnum(), isdecimal(), isspace(), istitle() - check what type of string you are dealing with
+#  startwiht(), endwith() - check if string ends or starts with something
+#  join() and split() - combine a list of strings, split strings into a list
+#  rjust(), ljust(), and center() - justify the string within the string of certain lenght
+#  rstrip(), lstrip(), strip() - remove whitespaces
+# pyperclip module  - for sending the text in and out of the clipboard
+
 import os
+import pyperclip
 
 cur = os.getgid()
 print(cur)
@@ -131,3 +144,75 @@ string1 = "hello nikolay"
 print(len(string1))
 print(string1[:-2])
 
+# additional infomration from automate with python book
+# TO PRINT A STRING WITH BACKSLASHES YOU need yo create a ran string
+# that can be done with r character
+
+print(r'Hello my \man')
+
+# sliceing a string is done using colon addresses. String numberign starts with 0
+
+test_string = 'Hello World'
+print(test_string[0:5])
+
+# you can also use logical tests on strings
+# for example lets' check if 'Hello' and 'Nikolay' are in the string
+
+if 'Hello' in test_string:
+    print('it is there')
+else:
+    print('it is not there')
+
+# isupper() islower() methods will return boolean values true or false
+# is islower is applied and all letters are low the value is true
+
+# there are some other methods
+
+ # - isalpha() returns True if the string consists only of letters and is not blank
+ # - isalnum() returns True if the string consists only of letters and numbers and is not blank
+ # - isdecimal() returns True if the string consists only of numeric characters and is not blank
+ # - isspace() returns True if the string consists only of spaces, tabs, and new-lines and is not blank
+ # - istitle() returns True if the string consists only of words that begin with an uppercase letter followed by only lowercase letters
+
+# starstwith() - pass the value and see if the string starts with that value
+# endswith() - pass value and see if string ends with that value
+
+# there is a special method to join/concatenate the strings
+# this method must be called on a string. At the beginning we use the separator
+
+string11 = 'is my love'
+string22 = 'tatyana'
+
+string22 = ' '.join([string22.lower().capitalize(), string11.lower(), '!'])
+print(string22)
+
+# join() is called on a string and it gets list of strings to join
+# split() is called on a string and it returns a list of strings
+
+print(string22.split())
+
+# you can pass a parameter on what you need to split on. Typically that would be ' '
+# however you can use \n for example to split into the list of strings that begin the new line
+
+# you can also justify string into a string of certain length
+# for example lets justofy 'hello' to the right into a string of 25 characters
+
+print('Hello'.rjust(25))
+
+# we can also substitute spaces for something else
+
+print('Hello'.rjust(25, '^'))
+
+# we have rjust(), ljust(), center()
+
+print(' Fuck it! '.center(100, '='))
+
+# you can also use rstrip() lstrip() and strip() to get rid of spaces on left and right sides
+# the string will take care of all whitespaces at the beginning and end
+# you can also specify which things you want to strip
+
+# you can use pyperclip to copy and paste stuff into the clipboard
+# ifr something was already copied into the clipboard, pyperclip.paste() will return that stuff
+
+pyperclip.copy('Hello')
+print(pyperclip.paste())

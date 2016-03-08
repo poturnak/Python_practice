@@ -155,3 +155,41 @@ for i in us:
     print('Here is the data about user: ' + i['name'])
     for j, n in i.items():
         print('\t' + j + ' is ' + n)
+
+
+# additional data from the Automate with Python book
+# the get() method helps us egt the value associated with the key
+# if key is not there, it can fallback to certain value
+# without get, program will spit out error
+
+picnic = {'eggs': 2, 'dogs': 3}
+print(picnic.get('eggs', 0))
+print(picnic.get('cats', 0))
+
+# set default method helps us to check if the key is already in dictionary
+# if it is not there, it adds key value pair to the dictionary
+# if it is there, then the original value is returned
+
+picnic.setdefault('table', 1)
+print(picnic)
+
+picnic.setdefault('eggs', 3)
+print(picnic)
+
+# in this example we will count the number of each letter in the string
+
+message_string = 'Hello, my name is Nikolay'
+
+message_letter = {}
+
+for letter in message_string:
+    message_letter.setdefault(letter, 0)
+    message_letter[letter] += 1
+
+print(message_letter)
+
+# in this example we will use pprint module to beautify the printing of dictionary and list structurees
+
+import pprint
+
+pprint.pprint(message_letter)
