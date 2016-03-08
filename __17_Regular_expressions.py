@@ -1,0 +1,59 @@
+#! /library/Frameworks/Python.framework/Versions/3.5/python3.5
+# In the python file we will explore how the regular expressions are used ofr pattern matching
+
+# \d - represents the digit
+# {n} - show to repeat the previous pattern n times; \d{3} means 3 digits
+# you can use {3,5} match 3,4,5 times, {,5}, {4,}
+# python matching is greedy by default, (Ha){3,5} will return 5 Has
+# (Ha){3,5)? will return 3 Has
+# () allows you to group sections; (\d\d\d) will be a group
+# to search for '(' you need to use special symbol '\(\
+# | will help you to match eother or (nick|john) will match either nick or john
+# pipe complex matching r'Bat(man|cat|dog) will match batman, batcat, or batdog
+# if you need to match pipe character, use '|'
+# ()? will allow optional matching; r'Bat(wo)?man' will match batman or batwoman
+# ? will allow optional matching, or non-greedy matching if {} is used
+# ()* allows for matching preceding group multiple times; r'Bat(wo)*man will match Batman, Batwoman, and Batwowoman
+# ()* means match zero or more
+# ()+ means match one or more
+# =================================================================================================================
+
+# To use regular expressions you need to import the re module
+import re
+
+# Path your regular expression to the method compile() in order to define regex object
+# Do not forget to use 'r', since it will make the raw input where '\' will be considered as input
+
+phone_regex = re.compile(r'(\(\d\d\d\))-(\d\d\d-\d\d\d\d)')
+
+# search() method will look for the regex in the provided string
+# search() method will not retunr the exact results, but rather the obkect will data
+# search() will return <_sre.SRE_Match object; span=(13, 25), match='650-930-7604'>
+# to return the number we need to use group() method on the search results object
+
+search_result = phone_regex.search('My number is (650)-930-7604')
+print('Phone number found ', search_result.group())
+print('First group ', search_result.group(1))
+print('Second group ', search_result.group(2))
+print('All groups ', search_result.groups())
+area_code,number = search_result.groups()
+print(area_code)
+print(number)
+
+# Here will will try using eiter/or matching
+
+name_regex = re.compile(r'Nick|Tatyana Poturnak')
+mo = name_regex.search('Nick and Tatyana Poturnak went to school')
+print(mo.group()) # returns Nick only, since retu4rns the first match; use findall() method
+
+# Lest try to use several matches wioth pipe
+
+regex = re.compile(r'Bat(man|dog|cat)') # will match either batman, batdog, or batcat
+mo1 = regex.search('Batman went to the store')
+print(mo1.group())
+
+# regex matching wil optional area code
+
+optional_regex = re.compile(r'(\(\d\d\d\)-)?\d\d\d-\d\d\d\d')
+mo2 = optional_regex.search('My phone number is 555-6666')
+print(mo2.group())
