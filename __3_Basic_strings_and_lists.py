@@ -1,14 +1,14 @@
 #! /Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5
 
 #  - indexing with string[0:1]
-#  - check 'abs" in/not in string
+#  - check if certain words are in the string; 'word' in/not in string
 #  upper(), lower(), isupper(), islower(), capitalize(), title() - check lower, upper letters
 #  isalpha(), isalnum(), isdecimal(), isspace(), istitle() - check what type of string you are dealing with
 #  startwiht(), endwith() - check if string ends or starts with something
 #  join() and split() - combine a list of strings, split strings into a list
 #  rjust(), ljust(), and center() - justify the string within the string of certain lenght
 #  rstrip(), lstrip(), strip() - remove whitespaces
-# pyperclip module  - for sending the text in and out of the clipboard
+#  pyperclip module  - for sending the text in and out of the clipboard
 
 import os
 import pyperclip

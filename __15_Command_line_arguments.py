@@ -26,9 +26,14 @@ group = parser.add_mutually_exclusive_group()
 #  - There are optional arguments (defined like -v), and positional/required (defined as v)
 #  - Short version is -v, long version is --version
 #  - action=store_true defines boolean type, if present it is true, if not it is fault
+#  - by default argparse interprets parameters as strings; you can define types: int, float, file
+#  - optional arguments are passed as -i filename; required integers are passed without any prepends
+#  - arguments are accessible by class.command defined at the beginning (for example, here args.i)
+#  - you can define your destination by dest='variable'
+#  - you can also define default parameters using default key
 
-parser.add_argument("-i", help='specify the input filename', required=True)
-parser.add_argument("-o", "--output", help="specify output file")
+parser.add_argument("-i", help='specify the input filename', required=True, dest='input_file')
+parser.add_argument("-o", "--output", help="specify output file", default='output.php')
 parser.add_argument("square", help='number of iterations', type=int)
 parser.add_argument("filename", help='filename to create during execution')
 parser.add_argument("-v", "--verbose", help='define the verbosity level', action="store_true")
@@ -40,15 +45,16 @@ group.add_argument("--loud", help='loud execution mode', action='store_true')
 # 3. Parse all arguments into some class. Typically that would be args.
 args = parser.parse_args()
 
-# 4. Work with variables. They are accesssible through class.
+# 4. Work with variables. They are accessible through class.
 print('\n')
 print('These are the parameters'.center(60, '='))
 print(args.square, " - this is the square the was passed to the program")
 print(args.filename, " - this file will be created during execution")
-print(args.i, ' - here is the input filename')
+print(args.input_file, ' - here is the input filename')
 print(args.time, ' - number of times to run')
 if args.quiet:
     print('Mode is quiet')
 if args.loud:
     print('Mode is loud')
+print(args.output)
 print('\n')
