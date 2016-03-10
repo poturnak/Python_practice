@@ -14,6 +14,7 @@
 #                 thus you have to use \ if you want to match them
 # \t\n\r - tab, newline, return
 # | - called pipe, allows to match either or
+#     you can use | in () to choose amongst the groups
 # ===================================================================================================
 # +++++++++ Repetition +++++++++
 # + - 1 or more occurrences of the preceding group
@@ -32,6 +33,7 @@
 # [asd.-] - will match letters and '.' and '-'
 # [^a] - by placing the '^' at the beginning, you make a negative class (not 'a')
 # () - used to create groups; allows to extract sections of matched text
+#      also allows you to add repetition on a set of characters, (\w.)*, r'Bat(wo)?man'
 # ===================================================================================================
 # +++++++++ Other rules +++++++++
 # r'^Hello' - by placing '^' means that match must occur a the beginning of the text
@@ -42,6 +44,7 @@
 # re.I - to ignore the case sensitivity, pass 're.I' as a second argument to the compile() method
 # re.VERBOSE - pass this to compile() method to ignore whitespaces and comments inside regular expression
 #              this will be used to visually create simpler expressions
+#              when you do this, you need to use compile(r'''...''', re=VERBOSE)
 #  - compile() method only takes one argument as a second parameter
 #    to combine I, DOTALL, VERBOSE you use | in the second section
 # ===================================================================================================
@@ -59,6 +62,15 @@
 # +++++++++ Useful regular expressions +++++++++
 # python matching is greedy by default, (Ha){3,5} will return 5 Has
 # (Ha){3,5)? will return 3 Has
+#
+# phoneRegex = re.compile(r'''(
+#     (\d{3}|\(\d{3}\))?            # area code
+#     (\s|-|\.)?                    # separator
+#     \d{3}                         # first 3 digits
+#     (\s|-|\.)                     # separator
+#     \d{4}                         # last 4 digits
+#     (\s*(ext|x|ext.)\s*\d{2,5})?  # extension
+#     )''', re.VERBOSE)
 # ===================================================================================================
 # ===================================================================================================
 
@@ -79,23 +91,23 @@ area_code, number = search_result.groups()
 print(area_code)
 print(number)
 
-# Here will will try using eiter/or matching
+# Here we will try using eiter/or matching
 name_regex = re.compile(r'Nick|Tatyana Poturnak')
 mo = name_regex.search('Nick and Tatyana Poturnak went to school')
-print(mo.group())  # returns Nick only, since retu4rns the first match; use findall() method
+print(mo.group())  # returns Nick only, since returns the first match; use findall() method
 
 # Lest try to use several matches with pipe
 regex = re.compile(r'Bat(man|dog|cat)')  # will match either batman, batdog, or batcat
-mo1 = regex.search('Batman went to the store')
+mo1 = regex.search('Batcat went to the store')
 print(mo1.group())
 
-# regex matching wil optional area code
+# regex matching with optional area code
 optional_regex = re.compile(r'(\(\d\d\d\)-)?\d\d\d-\d\d\d\d')
 mo2 = optional_regex.search('My phone number is 555-6666')
 print(mo2.group())
 
 # trying the findall() method
-lastname_regex = re.compile(r'((N|n)ikolay\s(P|p)oturnak)|((T|t)atyana\s(P|p)oturnak)')
+lastname_regex = re.compile(r'[N,n]ikolay\s[P,p]oturnak|[T,t]atyana[P,p]oturnak')
 lastname = lastname_regex.findall('Nikolay Poturnak and Tatyana Poturnak')
 print(lastname)
 
