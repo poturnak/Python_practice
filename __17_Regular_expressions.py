@@ -7,63 +7,69 @@
 # \w - any digit, letter, ot underscore
 # \W - any character that is not a letter, digit, or underscore
 # \s - any space, tab, or newline
-# \S - ane character that is not space, tab, or newline
-# . - is a wildcard, will match any 1 character
+# \S - any character that is not space, tab, or newline
+# \b - matches boundary between words
+# . - is a wildcard, will match any 1 character, except the newline
+# .^$*+?{[]\|() - these characters have special meaning
+#                 thus you have to use \ if you want to match them
+# \t\n\r - tab, newline, return
+# | - called pipe, allows to match either or
 # ===================================================================================================
 # +++++++++ Repetition +++++++++
-# + - 1 or more occurrences to the left
-# * - 0 or more occurrences to the left
-# ? - 0 or 1 occurrence to the left
+# + - 1 or more occurrences of the preceding group
+# * - 0 or more occurrences of the preceding group
+# ? - 0 or 1 occurrence of the preceding group
+# {n} - match the exact number of the preceding group
+# {1,}, {3,5}, {,5} - specifying the number of times the preceding group shoudl be matched
+# {n}?, +?, *? - performs non-greedy match of the preceding group
+# ? will allow optional matching, or non-greedy matching if {} is used
 # ===================================================================================================
-# +++++++++ Creating your own class +++++++++
+# +++++++++ Creating classes and groups +++++++++
 # [] are used to create the class
+# [.] - if '.' is used within the brackets, it means literally '.', not any character
 # [asdASD] - look for letters 'a', 's', 'd', 'A', 'S', 'D'
 # [a-zA-z0-9] - look for a to a, A to Z, and 0 to 9
 # [asd.-] - will match letters and '.' and '-'
 # [^a] - by placing the '^' at the beginning, you make a negative class (not 'a')
+# () - used to create groups; allows to extract sections of matched text
 # ===================================================================================================
 # +++++++++ Other rules +++++++++
 # r'^Hello' - by placing '^' means that match must occur a the beginning of the text
 # r'\d$' - indicates that the text must add with the digit; that digit will be returned
 # r'^\d+$' - match any strings that consist of digits, begin and end with digit
 # (.*) will match anything, except new line
-# (.*) and re.DOTALL - to match all characters, including new line, pass DOTALL to compile method
+# (.*) and re.DOTALL - to match all characters, including new line, pass DOTALL to compile() method
+# re.I - to ignore the case sensitivity, pass 're.I' as a second argument to the compile() method
+# re.VERBOSE - pass this to compile() method to ignore whitespaces and comments inside regular expression
+#              this will be used to visually create simpler expressions
+#  - compile() method only takes one argument as a second parameter
+#    to combine I, DOTALL, VERBOSE you use | in the second section
 # ===================================================================================================
 # +++++++++ Methods +++++++++
-# regex.search() -
-# regex.findall() -
+# regex.search() - returns only the first match, greedy be default, returns object
+# regex.findall() - returns the list of all matches, greedy by default, returns list
+#                   if groups () are used with findall() then findall() returns tuples
+#                   each tuple will include the match split into groups
+# regex.sub(arg1, arg2) - method to substitute strings within strings
+#                       - arg1 is string that we need to replace with
+#                       - arg2 is string where we need to replace
+#                       - arg1 can include \1,\2, etc. that will allow to use groups from searched text
+# object.group() - needs to be called to return the exact matched string, not the object
 # ===================================================================================================
-
-
-# {n} - show to repeat the previous pattern n times; \d{3} means 3 digits
-# you can use {3,5} match 3,4,5 times, {,5}, {4,}
+# +++++++++ Useful regular expressions +++++++++
 # python matching is greedy by default, (Ha){3,5} will return 5 Has
 # (Ha){3,5)? will return 3 Has
-# () allows you to group sections; (\d\d\d) will be a group
-# to search for '(' you need to use special symbol '\(\
-# | will help you to match eother or (nick|john) will match either nick or john
-# pipe complex matching r'Bat(man|cat|dog) will match batman, batcat, or batdog
-# if you need to match pipe character, use '|'
-# ()? will allow optional matching; r'Bat(wo)?man' will match batman or batwoman
-# ? will allow optional matching, or non-greedy matching if {} is used
-# ()* allows for matching preceding group multiple times; r'Bat(wo)*man will match Batman, Batwoman, and Batwowoman
-# ()* means match zero or more
-# ()+ means match one or more
-# search() method will return the first match
-# findall() method will return the list of all matches
-# =================================================================================================================
+# ===================================================================================================
+# ===================================================================================================
 
-# To use regular expressions you need to import the re module
+# 1. Import the re module
+# 2. Compile regex expression, use 'r' in order to use raw_input()
+# 3. Use search() or findall() method
+#    search() returns object, findall() returns list
+#    if used search() then use group()
+# 4. If groups were used, you can get each group by number (mo.group(1))
 import re
-
-# Path your regular expression to the method compile() in order to define regex object
-# Do not forget to use 'r', since it will make the raw input where '\' will be considered as input
 phone_regex = re.compile(r'(\(\d\d\d\))-(\d\d\d-\d\d\d\d)')
-
-# search() method will look for the regex in the provided string
-# search() method will not retunr the exact results, but rather the obkect will data
-# search() will return <_sre.SRE_Match object; span=(13, 25), match='650-930-7604'>
-# to return the number we need to use group() method on the search results object
 search_result = phone_regex.search('My number is (650)-930-7604')
 print('Phone number found ', search_result.group())
 print('First group ', search_result.group(1))
@@ -80,7 +86,7 @@ print(mo.group())  # returns Nick only, since retu4rns the first match; use find
 
 # Lest try to use several matches with pipe
 regex = re.compile(r'Bat(man|dog|cat)')  # will match either batman, batdog, or batcat
-mo1 = regex.search('Batman went to the store')√
+mo1 = regex.search('Batman went to the store')
 print(mo1.group())
 
 # regex matching wil optional area code
@@ -108,3 +114,14 @@ string = 'Hello.\nHow are you?'
 mo4 = newline.search(string)
 print(mo4.group())
 
+# using sub() method to replace certain parts wihtin the string
+replacement_regex = re.compile(r'Agent \w+', re.I)
+replacer = 'Agent Poturnak and agent Gorbach worked on that case'
+mo5 = replacement_regex.sub('CENSORED', replacer)
+print(mo5)
+
+# here we will use sub() and keep some of the replaced text
+replacement_regex = re.compile(r'Agent (\w)\w+', re.I)
+replacer = 'Agent Poturnak and agent Gorbach worked on that case'
+mo5 = replacement_regex.sub(r'\1*****', replacer)
+print(mo5)
