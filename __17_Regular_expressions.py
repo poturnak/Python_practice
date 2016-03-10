@@ -117,16 +117,16 @@ string = 'My address is npoturnak@gmail.com and t_poturnak@gmail.com'
 mo3 = email_regex.findall(string)
 if mo3:
     print('We found emails:')
-    for i in range(len(mo3)):
-        print('- ', mo3[i])
+    for i in mo3:
+        print('- ',i)
 
 # matching all including the newline characters
-newline = re.compile(r'(.*)', re.DOTALL)
+newline = re.compile(r'.*', re.DOTALL)
 string = 'Hello.\nHow are you?'
 mo4 = newline.search(string)
 print(mo4.group())
 
-# using sub() method to replace certain parts wihtin the string
+# using sub() method to replace certain parts within the string
 replacement_regex = re.compile(r'Agent \w+', re.I)
 replacer = 'Agent Poturnak and agent Gorbach worked on that case'
 mo5 = replacement_regex.sub('CENSORED', replacer)
@@ -137,3 +137,4 @@ replacement_regex = re.compile(r'Agent (\w)\w+', re.I)
 replacer = 'Agent Poturnak and agent Gorbach worked on that case'
 mo5 = replacement_regex.sub(r'\1*****', replacer)
 print(mo5)
+
