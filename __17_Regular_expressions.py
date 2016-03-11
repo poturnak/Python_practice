@@ -182,6 +182,7 @@ print(regex_helper)
 regex_strip = re.compile(regex_helper)
 print(regex_strip)
 mo_strip = regex_strip.findall(test_string)
+print(mo_strip)
 
 for (h,k,j) in mo_strip:
     print(k)

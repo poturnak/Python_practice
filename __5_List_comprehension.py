@@ -36,7 +36,7 @@ print(triples)
 colors = ['red', 'blue', 'pink']
 things = ['car', 'paper', 'ball']
 
-colors_things = [(x, y) for x in colors for y in things]
+colors_things = [[x, y] for x in colors for y in things]
 print(colors_things)
 
 # 5. Calculating prime numbers using list comprehension
