@@ -186,7 +186,7 @@ string22 = 'tatyana'
 string22 = ' '.join([string22.lower().capitalize(), string11.lower(), '!'])
 print(string22)
 
-# join() is called on a string and it gets list of strings to join
+# join() is called on a list of strings and it returns the one string
 # split() is called on a string and it returns a list of strings
 
 print(string22.split())

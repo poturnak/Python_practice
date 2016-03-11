@@ -73,6 +73,7 @@
 #     )''', re.VERBOSE)
 # ===================================================================================================
 # ===================================================================================================
+import pyperclip
 
 # 1. Import the re module
 # 2. Compile regex expression, use 'r' in order to use raw_input()
@@ -138,3 +139,49 @@ replacer = 'Agent Poturnak and agent Gorbach worked on that case'
 mo5 = replacement_regex.sub(r'\1*****', replacer)
 print(mo5)
 
+# in this example we will extract all emails and phone nubers from the text in the clipboard
+text = str(pyperclip.paste())
+
+phone_num_regex = re.compile(r'''(
+            (\d{3}|\(\d{3}\))?                  # area code
+            ([\ \-\.])?                         # separator
+            (\d{3})                             # first 3 digits
+            ([\ \-\.])?                         # separator
+            (\d{4})                             # last 4 digits
+            (\s*(ext|x|ext.)\s*(\d{2,5}))?)     # separator
+            ''', re.VERBOSE)
+numbers = phone_num_regex.findall(text)
+for i in numbers:
+    str = i[0]
+    if str[0] == '-':
+        print(str[1:])
+    else:
+        print(i[0].strip())
+
+email_num_regex = re.compile(r'''(
+            [a-zA-Z0-9\.\-\_\+\%\!\#\$\&]+   #username
+            @                   # @ symbol
+            [a-zA-Z0-9.-]+      # domain name
+            (\.[a-zA-Z]{2,4}))  # . something
+''', re.VERBOSE)
+
+email = email_num_regex.findall(text)
+for i in email:
+    print(i[0])
+
+# now we are going to replicate the strip() function
+test_string = 'QtestingQQhelloQ'
+print('input the character you want to strip  *_+-:\n')
+character = input()
+regex_helper = "([" + character + "])(\w*?)([" + character + r"])"
+print(regex_helper)
+
+# mo_strip = re.findall(regex_helper, test_string)
+# print(mo_strip)
+
+regex_strip = re.compile(regex_helper)
+print(regex_strip)
+mo_strip = regex_strip.findall(test_string)
+
+for (h,k,j) in mo_strip:
+    print(k)
