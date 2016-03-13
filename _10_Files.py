@@ -13,7 +13,7 @@
 # os.path.basename(full path) - returns the base name (after the last /)
 # os.path.split(path) - returns tuple of directory name and base name
 # os.path.getsize(path) - will return the file size defined by path
-# os.listdir(path) - returns a list of filenames in the defined directory
+# os.listdir(path) - returns a list of file names in the defined directory
 # os.path.exists(path) - the easiest way to check is the directory exists
 # os.path.isfile() - returns true if path is a file and exists
 # os.path.isdir() - returns true if path is a directory and exists
@@ -61,7 +61,8 @@ with open('pi_digits.txt') as file_object:
 with open('pi_digits.txt') as file_object:
     lines = file_object.readlines()
 
-for i in lines: print(i.rstrip())
+for i in lines:
+    print(i.rstrip())
 
 # Lets try to build one string off of this file
 
@@ -98,7 +99,3 @@ import pprint
 cats = [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]
 with open('cats.py', 'w') as file_object:
     file_object.write('cats = ' + pprint.pformat(cats))
-
-
-
-
