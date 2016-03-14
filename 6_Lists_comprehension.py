@@ -1,6 +1,6 @@
 #! /Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5
 # ===================================================================================================
-# +++++++++ LIst comprehension +++++++++
+# +++++++++ List comprehension +++++++++
 # creating the list with simple line is called list comprehension
 # ===================================================================================================
 
