@@ -9,7 +9,6 @@ spouse['city'] = 'SanFrancisco'
 print(spouse['city'].lower().capitalize())
 
 # Let's create a new dictionary to store data about the user
-
 user_dict = {'username': 'partynick', 'password': 'passwd', 'time': 'day', 'agent': 'ie'}
 
 for i, j in user_dict.items():
