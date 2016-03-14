@@ -34,7 +34,7 @@ group = parser.add_mutually_exclusive_group()
 
 parser.add_argument("-i", help='specify the input filename', required=True, dest='input_file')
 parser.add_argument("-o", "--output", help="specify output file", default='output.php')
-parser.add_argument("square", help='number of iterations', type=int)
+parser.add_argument("square", help='number of iterations', type =int)
 parser.add_argument("filename", help='filename to create during execution')
 parser.add_argument("-v", "--verbose", help='define the verbosity level', action="store_true")
 parser.add_argument("--time", help="times to run", type=int, choices=[1,2,3,4,5])
