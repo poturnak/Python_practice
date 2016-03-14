@@ -1,5 +1,4 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
-
 # ===================================================================================================
 # +++++++++ Random module +++++++++
 # import random
@@ -10,6 +9,6 @@
 # random.shuffle(list) - shuffle items in the list
 # random.sample(list, num) - choose certain number of elements from the list
 # ===================================================================================================
-
-
-
+# +++++++++ OS module +++++++++
+# os.getgid() - return the process id of the program
+# ===================================================================================================
