@@ -12,3 +12,8 @@
 # +++++++++ OS module +++++++++
 # os.getgid() - return the process id of the program
 # ===================================================================================================
+# +++++++++ Copy module for lists +++++++++
+# copy.copy() - module will allow you to copy list and not just pass reference
+#             - you need to import copy
+#             - list = list1.copy()
+# ===================================================================================================
