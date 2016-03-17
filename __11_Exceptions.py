@@ -1,3 +1,23 @@
+#! /library/Frameworks/Python.framework/Versions/3.5/python3.5
+# ===================================================================================================
+# +++++++++ Exceptions +++++++++
+# you can create your own exceptions within the program and then use try except method using your exceptions
+# for example
+# if x == 1:
+# raise exception ('X must not be 1!)
+# then further in the program you can use try except
+# try xxxxx
+# except Exception as err:
+# xxxxx
+# you can gracefully display the exception data, but at the same time get the traceback chain
+# you need to import traceback
+# then if there is exception, get traceback.format_ex() somewhere (for example, you can print it to file)
+# you can also use assertions (assert the some condition is true or false)
+# if assertion fails, an exception is generated
+# assert variable == 'hello', "It is actually not hello'
+# if condition is not met, the line after the comma is displayed
+# ===================================================================================================
+
 """"# In this file we will be practicing python exceptions
 
 try:

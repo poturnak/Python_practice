@@ -47,10 +47,10 @@ full_3_names('Tatyana', 'poturnak', 'Dmitrievna')
 # if you pass list it is list by reference
 # to pass list by pass by value you need to use [:]
 
-x = [500, 600]
+x = 500
 
 def change (y):
-    y.append(700)
+    y += 1
 
 change(x)
 print(x)
