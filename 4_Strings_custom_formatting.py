@@ -16,7 +16,7 @@ print(string)
 # keyword parameters are used by name=value pair
 print('Hey {1} how are you {0}?'.format('fucking', 'Nikolay'))
 print('Hey {name} how are you {action}?'.format(action='fucking', name='Nikolay'))
-print("Second argument: {1:3d}, first one: {0:7.2f}".format(47.42,11))
+print("Second argument: {1:3d}, first one: {0:7.1f}".format(47.42,11))
 print("various precions: {0:6.2f} or {0:6.3f}".format(1.4148))
 print("Art: {a:5d},  Price: {p:8.2f}".format(a=453, p=59.058))
 

@@ -4,7 +4,7 @@
 # 'string1' + 'string2' - you can concatenate string just by adding them
 # [0,1], [:5], [1:] - indexing strings, for example print certain symbols
 # print(string[:-2]) - print string only till the -2 letter (from the end)
-# print(r'') - print string in a raw format (do not enterpret special symbols)
+# print(r'') - print string in a raw format (do not interpret special symbols)
 # 'word' in/not in 'string' - check if certain word is in the string or not
 # len(string) - returns the length of the string
 # str(variable) - turn something into a string (number, list, etc.)
