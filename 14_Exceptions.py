@@ -81,8 +81,8 @@ file_name = 'cats.txt'
 try:
     with open(file_name) as file__object:
         file_lines = file__object.readlines()
-except FileNotFoundError:
-    pass
+except Exception:
+    print('No such file')
 else:
     for i in file_lines:
         print(i.capitalize())

@@ -1,6 +1,8 @@
 import unittest
-from name_function import get_formatted_name
-from survey import AnonymousSurvey
+
+from Working_files.name_function import get_formatted_name
+from Working_files.survey import AnonymousSurvey
+
 
 class NamesTestCase(unittest.TestCase):
     """Tests for name_function.py"""

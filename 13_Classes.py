@@ -17,7 +17,7 @@ my_dog = Dog('john', 8)
 my_dog.roll_over()
 my_dog.roll_over()
 
-# Here is how you can drectly change the attribute of a class
+# Here is how you can directly change the attribute of a class
 my_dog.age = 9
 
 print('\n')
@@ -94,7 +94,7 @@ my_car.print_odometer()
 # Let's create the class Electric_car that will inherit the attributes from car class
 # For child class you can overwrite the method that was defined for the parent class.
 # All you have to do is to create the method with the same name.
-# In this example we have fill_tank method overwhritten
+# In this example we have fill_tank method overwritten
 
 # we can also create class within the class. Let's create class battery and use it with electric car
 
