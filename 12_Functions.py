@@ -1,3 +1,26 @@
+#! /library/Frameworks/Python.framework/Versions/3.5/python3.5
+# In the python file we will explore how to work with functions in python
+# ===================================================================================================
+# +++++++++ Functions +++++++++
+# def function_name (arguments to pass)
+# def function (x) - pass 1 variable x
+# def function (*x) - pass variable number of arguments
+#                   -  args will become a list here
+# def function (**x) - pass variable number of arguments
+#                    - you need to pass key:value pairs
+#                    - x will become dictionary
+# def function (x = 'default) - you need to pass x, if you do not default value will be used
+# function can return the value if you use 'return value in the end'
+# when variable is passed to function it is unchanged (passed as value)
+# when list is passed to the fucntion it will be changed (passed as reference)
+# if you want to change global variable in the function declare it as global
+# +++++++++ Importing modules and functions +++++++++
+# you can import the function in 2 ways
+# 1. you can import the whole module" import module_name, then use module_name.function_name() to call function
+# 2. You can import specific function from module_name import function_name 1, function_name 2
+# For conflicting names, you can giev a function a name: from module import function_name as alias
+# You can also import a module with an alias: import module_name as alias
+# ===================================================================================================
 # Here is a simple function
 
 def greet_user():
@@ -65,7 +88,6 @@ def arbitrary (*toppings):
 arbitrary('low', 'high')
 
 # you can also mix positional and arbitrary arguments function (parameter1, *parameter2)
-
 # in this example we can provide key-value arguments to the function
 
 def build_profile(name, id, **parameters):
@@ -88,12 +110,6 @@ def automobile(model, year, **metadata):
         print(i, j)
 
 automobile('vw', 2009, color = 'red')
-
-# you can inport the function in 2 ways
-# 1. you can import the whole module" import module_name, then use module_name.fucntion_name() to call function
-# 2. You can import specific function from module_name import function_name 1, function_name 2
-# For conflicting names, you can giev a funciton a name: from module import function_name as alias
-# You can also import a module with an alias: import module_name as alias
 
 # Sometimes you want to modify the global variable within the function
 # For that you need to use 'global' within the function
