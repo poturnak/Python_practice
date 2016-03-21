@@ -3,7 +3,7 @@
 # __________________ Requests module __________________
 # requests.get('url') - function takes a string of a URL to download
 #                     - you assign the response.get() to a variable
-# requests.get('url', auth={'username', 'pass'}) - authentication
+# requests.get('url', auth=('username', 'password')) - authentication using HTTPBasicAuth
 # requests.post('url', data={'key': 'value') - make a post method request
 # requests.get('url', params={'x': 'y'} - pass parameters as part of URL
 # requests.get('url', headers={'header': 'value'} - create the list of headers
@@ -12,8 +12,12 @@
 # r.text - the html response is stored as a string (web page)
 # r.json() - the json response stored as dictionary
 # r.status_code - response status code (404, 200, etc.)
-# r.headers['content-type'] - retrieve certain headers
+# r.headers['content-type'] - retrieve certain response headers
+# print(r.headers) - print all response headers
+# r.request.headers - access request headers
 # r.encoding - retrieve encoding
+# r.history - returns the list of redirects
+# r.cookies - returns cookies
 # raise_for_status(requests.objects) - this method will raise an exception if there was an error downloading the page
 # __________________ Copy files and content to file __________________
 # BINARY FILE - get the file using requests.get()
@@ -24,6 +28,11 @@
 #             - close the file
 #             - see example below
 # HTML - recommended to write in binary format as well
+# # __________________ Working with POST requests and JSON __________________
+# if you want to post data to site use
+# requests.post('url', data={'':'', '':''} - in this case data will be form encoded
+# if you want to pass data as a string use
+# requests.post('url', data=json.dumps(dictionary) - passing data as a string
 # ===================================================================================================
 
 import requests, json, pprint
@@ -66,8 +75,15 @@ import requests, json, pprint
 # print(r.url)
 # print(r.status_code)
 
-r = requests.get('https://api.github.com/events')
-print(json.loads(r.text))
+r = requests.get('https://api.github.com/events', auth=('nikolay', 'poturnak'))
+for i, j in r.request.headers.items():
+    print('{}: {}'.format(i,j))
+print('\n\n')
 
-with open('json.txt', 'w') as file_object:
-    json.dump(r.text, file_object, indent=4)
+r = requests.get('http://www.facebook.com')
+print(r.history)
+for i, j in r.headers.items():
+    print('{}: {}'.format(i,j))
+print('\n\n')
+
+print(r.cookies)
