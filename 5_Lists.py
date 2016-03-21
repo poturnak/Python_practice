@@ -1,7 +1,7 @@
 #! /Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5
 # ===================================================================================================
 # +++++++++ Lists +++++++++
-# list + list1 - for concatentaion you can just add lists
+# list + list1 - for concatenation you can just add lists
 # list[1] - extract item from the list using the index; index starts at 0
 # list[1:5]/[:5]/[:]/[1:] - getting/printing only certain items of the list
 # list([2][2]) - if list contains a list you can double index

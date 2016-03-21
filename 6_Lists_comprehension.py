@@ -2,6 +2,7 @@
 # ===================================================================================================
 # +++++++++ List comprehension +++++++++
 # creating the list with simple line is called list comprehension
+# Examples are below
 # ===================================================================================================
 
 # basic list comprehension
