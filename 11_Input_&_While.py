@@ -42,7 +42,7 @@ while True:
     print(message)
 
 # When using break in the loop you finish the execution of while
-# sometimes you might use continuen, and that will push you to the beginning of the program
+# sometimes you might use continue, and that will push you to the beginning of the program
 # In the example we will print only even numbers
 
 counter = 0
@@ -54,7 +54,7 @@ while counter < 10:
     print(counter)
 
 
-# in this example we will write a program that will be asking about the age and offering a ticket proce
+# in this example we will write a program that will be asking about the age and offering a ticket price
 
 prompt = 'Give me your age and I will tell you the ticket price\n'
 print(prompt)
