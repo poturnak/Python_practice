@@ -1,3 +1,18 @@
+#! /library/Frameworks/Python.framework/Versions/3.5/python3.5
+# In the python file we will explore how to work with files in python
+# ===================================================================================================
+# +++++++++ Working with relative and absolute paths +++++++++
+# set() - creating a list of unique items
+# for example set(dictionary.keys())
+# you can use get method to get value from dictionary
+# if key does not exist, the function will fall back to certain value
+# dictionary.get('key', 'fallback_value')
+# setdefault() helps to check if value is in dictiomary
+# dictionary.setdefault('key', 'value')
+# 'key' is the key to search for
+# if key exists original value is returned
+# if key does not exist, value is returns from setdefault method, and key value pair is added to dictionary
+# ===================================================================================================
 spouse = {'name': 'tatyana', 'age': '29', 'city': 'NovoSIbirsk'}
 
 print(spouse)
@@ -58,7 +73,7 @@ print(sorted(list_helper))
 for l in set(first_last.values()):
     print(l)
 
-# In this section we will tkae a look at how we can do the nesting of dictionaries
+# In this section we will take a look at how we can do the nesting of dictionaries
 # we can do several things
 # 1. We will do the list of dictionaries. Pretty much we generate the dictionary and then append it to the list
 
@@ -75,7 +90,7 @@ for alien_number in range(30):
 
 print(aliens)
 
-# in this example I will cahnge the value of color in the first dictionary
+# in this example I will change the value of color in the first dictionary
 for helper in aliens[0:1]:
     helper['color'] = 'blue'
 
@@ -113,7 +128,7 @@ for i, j in languages.items():
         for m in j:
             print('-', m)
 
-# In this example we will create dictionary wihtin the dictionary
+# In this example we will create dictionary within the dictionary
 
 user_info = {
     'partynick': {
@@ -157,7 +172,7 @@ for i in us:
 
 
 # additional data from the Automate with Python book
-# the get() method helps us egt the value associated with the key
+# the get() method helps us get the value associated with the key
 # if key is not there, it can fallback to certain value
 # without get, program will spit out error
 
@@ -169,7 +184,8 @@ print(picnic.get('cats', 0))
 # if it is not there, it adds key value pair to the dictionary
 # if it is there, then the original value is returned
 
-picnic.setdefault('table', 1)
+picnic = {'eggs': 2, 'dogs': 3}
+print(picnic.setdefault('table', 1))
 print(picnic)
 
 picnic.setdefault('eggs', 3)
