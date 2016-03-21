@@ -48,17 +48,17 @@ print(os.listdir('.'))
 # Opening the file will create an object
 # In the example below we are reading the file as a string
 
-with open('pi_digits.txt') as file_object:
+with open('Working_files/pi_digits.txt') as file_object:
     contents = file_object.read()
     print(contents.rstrip())
 
 # In this example we are printing file line by line
-with open('pi_digits.txt') as file_object:
+with open('Working_files/pi_digits.txt') as file_object:
     for i in file_object:
         print(i.rstrip())
 
 # In this example we will store each line of the file in the list
-with open('pi_digits.txt') as file_object:
+with open('working_files/pi_digits.txt') as file_object:
     lines = file_object.readlines()
 
 for i in lines:
@@ -75,7 +75,7 @@ print(pi_string)
 # Writing to the file requires opening the file with w parameter
 # You can open file with r(read), w(write). a(append), r+(read and write) parameters
 
-with open('programming.txt', 'w') as file_object:
+with open('Working_files/programming.txt', 'w') as file_object:
     file_object.write('\nHello python 123')
 
 print('Hello')
@@ -83,12 +83,12 @@ print('Hello')
 # In this example we will use shelve module to store python data there
 # Shelve module stores data in a dictionary
 import shelve
-shelf_file = shelve.open('mydata')
+shelf_file = shelve.open('working_files/mydata')
 cats = ['Mike', 'john']
 shelf_file['cats'] = cats
 shelf_file.close()
 
-shelf_file = shelve.open('mydata')
+shelf_file = shelve.open('working_files/mydata')
 a, b = shelf_file['cats']
 print(a)
 print(b)
@@ -97,5 +97,5 @@ shelf_file.close()
 # In this example we will use pprint.pformat() to store python data in a text file
 import pprint
 cats = [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]
-with open('cats.py', 'w') as file_object:
+with open('working_files/cats.py', 'w') as file_object:
     file_object.write('cats = ' + pprint.pformat(cats))

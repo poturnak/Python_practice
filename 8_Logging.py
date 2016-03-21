@@ -2,6 +2,7 @@
 # ===================================================================================================
 # +++++++++ Logging +++++++++
 # logging.basicconfig(filename='txt.txt') - defines the file where you want to log, instead of screen
+# ===================================================================================================
 
 # add the following at the beginning of the program
 import logging
