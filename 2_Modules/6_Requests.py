@@ -75,10 +75,12 @@ import requests, json, pprint
 # print(r.url)
 # print(r.status_code)
 
-r = requests.get('https://api.github.com/events', auth=('nikolay', 'poturnak'))
+r = requests.get('https://api.github.com/events')
 for i, j in r.request.headers.items():
     print('{}: {}'.format(i,j))
-print('\n\n')
+
+str = json.loads(r.text)
+pprint.pprint(r.json())
 
 r = requests.get('http://www.facebook.com')
 print(r.history)
