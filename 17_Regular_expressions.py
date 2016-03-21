@@ -1,5 +1,5 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
-# In the python file we will explore how the regular expressions are used ofr pattern matching
+# In this python file we will explore how the regular expressions are used for pattern matching
 # ===================================================================================================
 # +++++++++ Character classes +++++++++
 # \d - any numeric digit 0 to 9
@@ -37,7 +37,7 @@
 # ===================================================================================================
 # +++++++++ Other rules +++++++++
 # r'^Hello' - by placing '^' means that match must occur a the beginning of the text
-# r'\d$' - indicates that the text must add with the digit; that digit will be returned
+# r'\d$' - indicates that the text must end with the digit; that digit will be returned
 # r'^\d+$' - match any strings that consist of digits, begin and end with digit
 # (.*) will match anything, except new line
 # (.*) and re.DOTALL - to match all characters, including new line, pass DOTALL to compile() method
@@ -92,7 +92,7 @@ area_code, number = search_result.groups()
 print(area_code)
 print(number)
 
-# Here we will try using eiter/or matching
+# Here we will try using either/or matching
 name_regex = re.compile(r'Nick|Tatyana Poturnak')
 mo = name_regex.search('Nick and Tatyana Poturnak went to school')
 print(mo.group())  # returns Nick only, since returns the first match; use findall() method
@@ -108,7 +108,7 @@ mo2 = optional_regex.search('My phone number is 555-6666')
 print(mo2.group())
 
 # trying the findall() method
-lastname_regex = re.compile(r'[N,n]ikolay\s[P,p]oturnak|[T,t]atyana[P,p]oturnak')
+lastname_regex = re.compile(r'[N,n]ikolay\s[P,p]oturnak|[T,t]atyana\s[P,p]oturnak')
 lastname = lastname_regex.findall('Nikolay Poturnak and Tatyana Poturnak')
 print(lastname)
 
@@ -139,7 +139,7 @@ replacer = 'Agent Poturnak and agent Gorbach worked on that case'
 mo5 = replacement_regex.sub(r'\1*****', replacer)
 print(mo5)
 
-# in this example we will extract all emails and phone nubers from the text in the clipboard
+# in this example we will extract all emails and phone numbers from the text in the clipboard
 text = str(pyperclip.paste())
 
 phone_num_regex = re.compile(r'''(
