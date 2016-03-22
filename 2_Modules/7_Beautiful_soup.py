@@ -1,10 +1,42 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
 # ===================================================================================================
-# ______________________Beautiful soup module ______________________
+# ______________________Working with soup object ______________________
 # soup = bs4.BeautifulSoup('html', 'html.parser') - load html into beautiful soup
-#                                          - create an object you will work with
-#                                          - you also need to pass 'html.parser'
+#                                                 - create an object you will work with
+#                                                 - you also need to pass 'html.parser'
 # print(soup.prettify()) = pretty print the soup object
+# soup.title - returns title tags and title betwene the tags from the soup object
+# soup.head, soup.a, etc.
+# soup.title.string - returns title object (tags and string between tags)
+# --you can also navigate into the child tags
+# soup.body.a - get to body first, then within body tag get into a tag, will give you the fist object of tag <a>
+# --to return all tags <a> use findall() method as below
+# soup.findall('a') - returns all <a> tags as a list
+# soup.find(id='id value') - returns tag with associated id
+# soup.getTeXt() - return all the text from the soup
+# ______________________Working with tags ______________________
+# soup = bs4.BeautifulSoup('<b>Hello</b>', 'html.parser')
+# tag = soup.b
+# tag.name - gives name of tag
+# tag['class'] - returns data associated with attribute class
+# tag.attrs - returns dictionary of attributes
+# --you can add, remove, and modify tags
+# --you can access all children tags of a tag
+# --they are returned as a list if you use contents attribute
+# soup.head.contents - returns a list of tags within the <head>
+# soup.head.parent - returns the parent tag
+# ______________________Working with strings ______________________
+# String is the text in between tags
+# soup.b.string - returns the string between b tags
+# tag.string - returns the string between the tags that were assigned to variable tag
+# tag.string.replace_with('New string') - replace the string with the new one
+# ______________________Searching the tree ______________________
+
+
+
+
+
+
 
 # ______________________ Working with search results ______________________
 # select() - returns a list of objects that were found
@@ -38,6 +70,8 @@ file_contents = file_object.read()
 
 # creating soup object
 soup = bs4.BeautifulSoup(file_contents, 'html.parser')
+print(soup.title.string)
+print(soup.body.contents)
 print(soup.prettify())  # pretty printing
 print('Separator'.center(50, '_'))
 
