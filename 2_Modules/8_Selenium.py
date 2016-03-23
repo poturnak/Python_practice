@@ -10,7 +10,6 @@
 # find_elements - retunrs all objects that match your query
 # If selenium does not find anything it raises an exception 'NoSuchElement'
 # if you do not want program to crash use try except
-
 # --------Elements that use CSS class name
 # browser.find_element_by_class_name(name)
 # browser.find_elements_by_class_name(name)
@@ -44,6 +43,7 @@
 # click() - click on the link
 # send_key() - sending keystrokes to the forms on the webpage
 # submit() - submit or click the button
+# clear() - if you entered something in the text form, clear() method will delete the text
 # ______________________Module for sending special keys ______________________
 # You need to import it first
 # from selenium.webdriver.common.keys import Keys
@@ -53,6 +53,7 @@
 # Keys.ESCAPE, Keys.BACK_SPACE, Keys.DELETE - The ESC, BACKSPACE, and DELETE keys
 # Keys.F1, Keys.F2,..., Keys.F12 - The F1 to F12 keys at the top of the keyboard
 # Keys.TAB - The TAB key
+# --an example is element.send_key(Key.ENTER)
 # ______________________Clicking brower buttons ______________________
 # browser.back()
 # browser.forward()
