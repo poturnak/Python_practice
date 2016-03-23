@@ -25,27 +25,38 @@
 # --they are returned as a list if you use contents attribute
 # soup.head.contents - returns a list of tags within the <head>
 # soup.head.parent - returns the parent tag
+# --if yo extratced an element that inludes multiple tags you can apply the same hierarchical tag structure to it
+# element.a - gets <a> element from your tag
+# element[0].a['href']- gets object from thr list, looks for <a> tag and extracts thr href data
 # ______________________Working with strings ______________________
 # String is the text in between tags
 # soup.b.string - returns the string between b tags
 # tag.string - returns the string between the tags that were assigned to variable tag
 # tag.string.replace_with('New string') - replace the string with the new one
 # ______________________Searching the tree ______________________
-
-
-
-
-
-
-
-# ______________________ Working with search results ______________________
+# --there are 2 methods: find() and findall()
+# --search methods return lists
+# --let's take a look what you can search for
+# soup.find('b') - look for tag <b>
+# soup.find_all(['a', 'b']) - returns all <b> and <a> tags
+# soup.find_all('p', 'title') - returns tags p with class title
+# soup.find_all(id='333') - tag with id 333
+# soup.find_all(id=True) - all tags with id
+# soup.find_all(class_=True) - all tags with classes
+# --you can pass regular expression to either of the find methods
+# soup.findall('a', href=re.compile('aaa')) - find all <a> tags there href includes aaa
+# --you can also search for strings
+# --passing regular expression is helpful
+# soup.find_all(string=re.compile('hello') - find all strings that have hello in them
+# soup.find_all('a', limit=2) - limits the search for certain number fo results
+# soup.find_all('div', attrs={'a': 'b'}) - search for div tags with complex attributes
+# ______________________ Searching using CSS selectors ______________________
 # select() - returns a list of objects that were found
 #          - it will be tags and contents within the tags
 # soup[0].getText() - from the list get position 0 and return the information within the tag
 # soup[0].attrs - return the attributes of the tag that was found
 # soup[0].get('attribute name') - from the returned list, choose item, then apply get() method with attribute name
 #                               - will return the value of the attribute
-
 # ______________________Searching soup object 'soup' ______________________
 # soup.select('div') - will choose all elements named <div>
 # soup.select('#author') - the element with an id attribute author
