@@ -1,5 +1,5 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
-# In this tutorial we will be workign with openpyxl module
+# In this tutorial we will be working with openpyxl module
 # ===================================================================================================
 # ______________________ Openpyxl module ______________________
 # --first you import the module
