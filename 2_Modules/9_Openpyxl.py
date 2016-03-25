@@ -5,11 +5,14 @@
 # --first you import the module
 # --then you use load_workbook() function
 # wb = openpyxl.load_workbook('name') - load the workbook by the name
+# --you can also just create the blank workbook
+# wb = openpyxl.Workbook()
+# ws = wb.active - get current worksheet
 # ______________________ Working with workbook and sheets ______________________
 # wb.get_sheet_names() - return the list of sheet names
 # sheet = wb.get_sheet_by_name() - return certain sheet to the variable
 # sheet.title - return the title of the sheet
-# sheet = wb.get_active_sheet() - return active sheet into a variable
+# sheet = wb.active - return active sheet into a variable
 # sheet['cell name'] - return the object of a cell into a variable
 # sheet['cell name'].value - return the value of the specified cell
 # sheet['cell name'].row - return the row of specified cell
@@ -42,6 +45,7 @@
 # --to remove the sheet you have to pass an object, not a sheet name
 # wb.remove_sheet(wb.get_sheet_by_name('name')) - remove the sheet
 # sheet['A1'] = 55 - change the value of the cell
+# wb.sheet_properties.tabColor = '1072BA' - change the tab color
 # ______________________ Working with fonts and styles ______________________
 # --import the necessary components first
 # from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font
@@ -128,7 +132,7 @@ wb.save('1_Working_files/playful.xlsx')
 wb.create_sheet('Hello')
 print(wb.get_sheet_names())
 
-# let's open the new workbook and play with some fomratting
+# let's open the new workbook and play with some formatting
 wb1 = openpyxl.Workbook()
 sheet = wb1.get_sheet_by_name('Sheet')
 font_obj = Font(size=24, italic=True)
@@ -146,7 +150,6 @@ chart = openpyxl.chart.BarChart()
 chart.add_data(values)
 sheet_chart.add_chart(chart)
 wb_chart.save('1_Working_files/example_chart.xlsx')
-
 
 
 
