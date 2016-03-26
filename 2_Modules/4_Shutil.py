@@ -25,9 +25,9 @@
 #         - file.close() - close the object
 #         - file.extract(what to extract, where to extract) will extract single file that you define
 
-# in this exmple we will delete all files with txt extension
+# in this example we will delete all files with txt extension
 import os
-for filename in os.listdir():
+for filename in os.listdir('.'):
     if filename.endswith('.txt'):
         # os.unlink(filename)
         print('Deleted ', filename)
