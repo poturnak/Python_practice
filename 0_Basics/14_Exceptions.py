@@ -16,6 +16,9 @@
 # if assertion fails, an exception is generated
 # assert variable == 'hello', "It is actually not hello'
 # if condition is not met, the line after the comma is displayed
+# --you can stop program by pressing Control+C
+# --when you do that, KeyboarInterrupt exception will be raised
+# --you can use try except to handle this exception
 # ===================================================================================================
 
 """"# In this file we will be practicing python exceptions
