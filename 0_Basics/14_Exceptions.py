@@ -90,4 +90,8 @@ else:
     for i in file_lines:
         print(i.capitalize())
 
-
+# example for keyboard interrupt exception
+# try:
+#     while True:
+# except KeyboardInterrupt:
+#      print('\nDone.')

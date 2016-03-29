@@ -23,7 +23,7 @@
 # sheet.max_row - returns the number of the highest row
 # sheet.max_column - returns the number of the highest column
 # --you can also convert index to letter and letter to index
-# --for that you need to import two functios as below
+# --for that you need to import two functions as below
 # get_column_letter('num') - returns the letter from the index
 # get_column_index_from_string('letter') - returns the index from the letter
 # -- you can also slice the sheet in the way you want
