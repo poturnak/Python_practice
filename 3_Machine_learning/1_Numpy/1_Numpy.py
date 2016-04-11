@@ -20,6 +20,9 @@
 # np.diag(np.array([1, 2, 3]) - array with 1, 2, 3 in the diagonal
 # np.random.rand(4) - 1D array with 4 random numbers
 # np.empty((n, n, n)) - return array of given shape without initializing values
+# _________________ Random number generation _________________
+# np.random.seed(value) - set the initial value for pseudo random number generation algorithm
+
 # _________________ Indexing and slicing _________________
 # var[n, n, n] - get the item of the list; indices begin at 0
 # var[::-1] - reversing the array
@@ -88,3 +91,8 @@ print(np.tile(b, (2, 2)))
 print('\n')
 a = np.diag([2, 3, 4, 5, 6])
 print(a)
+
+# generate some random numbers
+np.random.seed(555)
+f = np.random.rand(5, 5)
+print(f)

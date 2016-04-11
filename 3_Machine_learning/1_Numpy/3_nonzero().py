@@ -14,3 +14,8 @@ b = a.nonzero()
 print(b)
 
 print(a[a.nonzero()])  # returns all nonzero items from the array
+
+# if you want to group be element bu not by index, you can use transpose function
+
+print(np.transpose(a.nonzero()))
+
