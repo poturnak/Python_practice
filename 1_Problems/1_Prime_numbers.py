@@ -1,6 +1,7 @@
 # Based on the input number, generate the list of all prime numbers that are below the input number
 
 from datetime import datetime
+import numpy as np
 start_time = datetime.now()
 
 print('Please, provide the limiting number')
@@ -23,3 +24,13 @@ print(array_primes)
 
 end_time = datetime.now()
 print('Duration: {}'.format(end_time - start_time))
+
+
+# in this example we will use the numpy to calculate prime numbers
+is_prime = np.ones(100)
+is_prime[:2] = 0
+
+for i in range(2, int(len(is_prime) / 2)):
+    is_prime[2*i::i] = False
+
+print(np.nonzero(is_prime))

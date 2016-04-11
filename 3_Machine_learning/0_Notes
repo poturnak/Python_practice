@@ -1,0 +1,39 @@
+3 types of machine learning: supervised, unsupervised, and reinforced
+
+ - Supervised learning: learns from labeled training data in order to male prediction about future events.
+        - Supervised learning with discrete class labels is called classification task (spam filters)
+        The goal here is to predict the categories of new instances based on prior data.
+        Multi class classification task is handwriting recognition (you have a lot of characters).
+        - Regression analysis (continuous outcomes).
+        Given a predictor variable x and response variable y we can build regression line.
+
+ - Reinforced learning: the goal is to develop the system that improves based on interactions with environment.
+ The agent does an action, the environment responds with the reward signal that measures how well the action was
+ measured by reward function. Then the agent thrugh series of action will learn what maximizes the reward.
+
+- Unsupervised learning: we are dealign with the unknown data and the algorithm needs to extract meaningful information
+without the guidance of known outcome variable or reward function.
+        - Finding subgroups with clustering: clustering unknown data where objects share certain similarities
+        - Dimensionality reduction: reducing the number of dimension while analyzing data
+
+Machine learning model:
+1. Pre-processing
+    - Working with the raw data and extracting the useful set of features
+    - Some of the featured may be redundant and highly correlated, thus dimensionality reduction is necessary
+    - We also divide our data set into Training and Test sets (test set is used to test the algorithm)
+
+2. Training and selecting predictive model
+    - Each algorithm has it biases
+    - You need to compare a handful of algorithms to train and select the best model
+    - Select the metric of performance (one can be classification accuracy; proportion of correctly classified instances)
+
+3. Evaluating models and predicting unseen data instances
+    - Use test dataset to estimate how well the model performs
+
+The modules we will be using:
+ - NumPy
+ - SciPy
+ - scikit-learn
+ - matplotlib
+ - pandas
+

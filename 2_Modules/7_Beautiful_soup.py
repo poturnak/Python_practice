@@ -25,9 +25,9 @@
 # --they are returned as a list if you use contents attribute
 # soup.head.contents - returns a list of tags within the <head>
 # soup.head.parent - returns the parent tag
-# --if yo extratced an element that inludes multiple tags you can apply the same hierarchical tag structure to it
+# --if you extracted an element that includes multiple tags you can apply the same hierarchical tag structure to it
 # element.a - gets <a> element from your tag
-# element[0].a['href']- gets object from thr list, looks for <a> tag and extracts thr href data
+# element[0].a['href']- gets object from the list, looks for <a> tag and extracts thr href data
 # ______________________Working with strings ______________________
 # String is the text in between tags
 # soup.b.string - returns the string between b tags
