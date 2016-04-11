@@ -27,26 +27,15 @@
 # np.random.randint(low, high=None, size=None) - return random integers from low(inclusive) to high(exclusive)
 # np.random.random_integers(low, high=None, size=None) - return random integers from low(inclusive) to high(inclusive)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # _________________ Indexing and slicing _________________
-# var[n, n, n] - get the item of the list; indices begin at 0
-# var[::-1] - reversing the array
+# --you can do just indexing to extract data or you can assign values using indexing
+# --SINGLE ELEMENT INDEXING
+# arr[n, n, n] - get the item from the array; indices begin at 0; returns a single item
+# --you can get the whole line if you omit some indexes
+# arr[n] - returns the whole line if arr is multidimensional array
+# --SLICING FOR INDEXING
+# --slicing returns the view of the array
+# arr[::-1] - reversing the array
 # --when indexing 1. row (x), 2. column(y), 3. variable(z)
 # --when slicing 1. Start 2. Stop 3. Step
 # var[2:6:2] - start from item 2 till 5 with the step 2, you will get the slice
@@ -56,6 +45,18 @@
 #                - then within those rows, choose every second item from the beginning
 # --you can also combine assignment and slicing
 # var[5:] = 10 - starting from item 5 assign 10 to each item till the end
+# --USING ARRAYS FOR INDEXING
+# --using arrays for indexing will return the new array
+# arr[[1, 5, 6, 7]] - create new array with elements indexes you want to extract
+#                           - then using arr return those elements
+# arr[[0, 1], [1, 2]] - in this case your elements will be [0,1], and [1, 2]
+# --FANCY INDEXING WITH MASKS OR BOOLEAN ARRAYS
+# --create a mask
+# mask = (arr > 20)
+# --then index using this mask
+# arr[mask] - will get all the elements that are more than 20
+# --you can use assignment usign mask as well
+# arr[mask] = value
 # _________________ Tiling an array _________________
 # numpy.tile(A, reps) - construct the array repeating A the reps times
 # np.tile(b, (2, 1)) - repeat b 2 times, do 1 row
@@ -63,8 +64,27 @@
 # --slicing creates a view of the array, thus 2 arrays share the same memory space
 # --to create a slice in a new memory location you need to force copy
 # a = b[::2].copy() - forcing a copy on a slice
-# _________________ Fancy indexing _________________
-# --fancy indexing creates copies not views
+# _________________ Numerical operations on arrays _________________
+# --to add to each element in array just ad the mumber
+# arr + 1 - will add 1 to each element
+# --to multiply, subtract, divide apply those operations on array
+# --you can do comparisons of each element between 2 arrays
+# a == b, a > b - each element of a is compared with element b and the bitvector is generated
+# np.array_equal(a, b) - array wise comparisons (will retunrn only True or False)
+# np.logical_or(a, b) - do logical or with each element a with element b
+# np.logical_and(a, b) - do logical and between elements
+# np.sin(a), np.log(a), np.exp(a) - do operations on each element of a
+# np.sum(arr) - calculates the sum of all the elements
+# np.sum(axis=0) - retunrs the sum of all elements in each column (a, b, c) for matrix of 3 columns
+# np.sum(axis=1) - returns the sum of all elements in each row
+# --you can return the sum of each specific column or row
+# arr[0, :].sum() - return the sum of elements in row 0
+# arr.min(), arr.max() - get min or max element
+# arr.argmin(), arr.argmax() - get index of min or max element
+# arr.mean(axis optional) - return mean
+# arr.median(axis optional) - return median
+# arr.std(axis optional) - return std
+# np.unique(arr) - find unique elements of the array
 # ============================================================================================
 
 import numpy as np
@@ -124,4 +144,13 @@ print(f)
 arr = np.random.random_integers(0, 20, 15)
 print(arr)
 mask = (arr > 10)
+print(mask)
 print(arr[mask])
+
+b = np.array([[1, 2, 3, 4, 5],
+              [0, 1, 2, 3, 4]])
+print(b)
+
+print(b[np.array([1, 1]), [3, 4]])
+
+print(np.random.random_integers(0, 1, (10, 5)))
