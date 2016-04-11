@@ -1,27 +1,48 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
 # ============================================================================================
-# var = numpy.array([]) - create numpy array
-# print(np.lookfor('create array')) - generate the list of potential functions for the question
+# _________________ Intro _________________
 # var.ndim - show number of dimensions (rows)
 # var.shape - show the number of items in the dimension
-# var = np.arange(10) - create one dimensional array from 0 to 9
-# var = np.arange(start, end, step) - create array using beginning, end and step
-# var = np.linspace(start, end, numpoints) - create array using number of steps between the endpoints
 # var.dtype - print the data type of the elements in the array
 # --floats are displayed with the trailing comma
 # --you can explicitly specify the data type that you want by passing dtype when creating array
 # dtypes = float, bool, S7, etc.
-# var = np.linspace(0, 1, 5)
 # [:, np.newaxis] - adds a new axis when printing an array
-# _________________ Creating common arrays _________________
+
+# _________________ Creating numpy array _________________
+# arr = numpy.array([a, b, c, ..]) - create numpy array
+# arr = np.arange(10) - create one dimensional array from 0 to 9
+# arr = np.arange(start, end, step) - create array using beginning, end and step
+# arr = np.linspace(start, end, numpoints) - create array using number of steps between the endpoints
+# arr = np.linspace(0, 1, 5) - 0 to 1 creating 5 numpoints
 # np.ones((n, n, n)) - crate 1, 2, 3 dimensional array consisting of ones
 # np.zeroes((n, n, n)) - create the 1, 2, 3, dimensional array of zeroes
 # np.eye() - returns 2D array with 1s in the diagonal and 0s elsewhere
 # np.diag(np.array([1, 2, 3]) - array with 1, 2, 3 in the diagonal
-# np.random.rand(4) - 1D array with 4 random numbers
 # np.empty((n, n, n)) - return array of given shape without initializing values
+
 # _________________ Random number generation _________________
 # np.random.seed(value) - set the initial value for pseudo random number generation algorithm
+# np.random.rand(x, y) - generate array of random numbers with x rowsn and y columns
+# np.random.randint(low, high=None, size=None) - return random integers from low(inclusive) to high(exclusive)
+# np.random.random_integers(low, high=None, size=None) - return random integers from low(inclusive) to high(inclusive)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # _________________ Indexing and slicing _________________
 # var[n, n, n] - get the item of the list; indices begin at 0
@@ -42,6 +63,8 @@
 # --slicing creates a view of the array, thus 2 arrays share the same memory space
 # --to create a slice in a new memory location you need to force copy
 # a = b[::2].copy() - forcing a copy on a slice
+# _________________ Fancy indexing _________________
+# --fancy indexing creates copies not views
 # ============================================================================================
 
 import numpy as np
@@ -93,6 +116,12 @@ a = np.diag([2, 3, 4, 5, 6])
 print(a)
 
 # generate some random numbers
-np.random.seed(555)
+np.random.seed(10)
 f = np.random.rand(5, 5)
 print(f)
+
+# Let's practice some mask indexing here
+arr = np.random.random_integers(0, 20, 15)
+print(arr)
+mask = (arr > 10)
+print(arr[mask])
