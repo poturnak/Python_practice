@@ -9,4 +9,13 @@ b = np.triu(arr, k=1)  # k=1 takes 1 element int he first row and draws diaginal
 # tril returns the lower part
 print(b)
 
-print(b.T)  # transposes the array, line becomes a colum, then next line, etc.
+print(b.transpose())  # transposes the array, line becomes a colum, then next line, etc.
+# you can transpose only 2D array; 1D array will not be changed
+
+a = np.arange(0, 10)
+print(a)
+print(a.transpose())  # not changed
+
+# for that purpose you need to use newaxis
+print(a[:, np.newaxis])
+print(a)

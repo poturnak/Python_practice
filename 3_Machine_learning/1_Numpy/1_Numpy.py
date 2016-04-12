@@ -85,6 +85,7 @@
 # arr.median(axis optional) - return median
 # arr.std(axis optional) - return std
 # np.unique(arr) - find unique elements of the array
+# --axis=0 - over the column, axis=1 - over the row
 # ============================================================================================
 
 import numpy as np
