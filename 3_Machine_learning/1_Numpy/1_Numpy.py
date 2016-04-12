@@ -75,7 +75,7 @@
 # np.logical_and(a, b) - do logical and between elements
 # np.sin(a), np.log(a), np.exp(a) - do operations on each element of a
 # np.sum(arr) - calculates the sum of all the elements
-# np.sum(axis=0) - retunrs the sum of all elements in each column (a, b, c) for matrix of 3 columns
+# np.sum(axis=0) - returns the sum of all elements in each column (a, b, c) for matrix of 3 columns
 # np.sum(axis=1) - returns the sum of all elements in each row
 # --you can return the sum of each specific column or row
 # arr[0, :].sum() - return the sum of elements in row 0

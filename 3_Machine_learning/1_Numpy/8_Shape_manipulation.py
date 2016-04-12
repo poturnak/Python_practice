@@ -27,5 +27,11 @@ print(z[:, np.newaxis])
 # you can also use [np.newaxis, :]
 
 # dimension shuffling
-v = np.arange(4*3*2).reshape((4, 3, 2))
-print(v.shape)
+v = np.arange(4*3).reshape((4, 3))
+print(v)
+print(v.transpose())
+
+# you can also resize the array
+m = np.arange(4)
+m.resize((10, ))
+print(m)
