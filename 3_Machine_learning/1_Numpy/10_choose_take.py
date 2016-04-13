@@ -27,5 +27,10 @@ print(result1)
 # Generate a 10 x 3 array of random numbers (in range [0,1]). For each row, pick the number closest to 0.5
 
 np.random.seed(10)
-arr = np.random.randint(0, 2, (10, 3))
+arr = np.random.rand(10, 3)
 print(arr)
+
+mask = np.argmin(abs(arr - 0.5), axis=1)
+print(mask)
+result = np.choose(mask, arr.T)
+print(result)

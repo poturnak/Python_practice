@@ -48,3 +48,5 @@ j = np.argsort(arr)
 print(j)
 print(arr[j])
 
+a = np.array([0, 1]).reshape((2,1,1))
+print(a)

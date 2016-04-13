@@ -55,7 +55,7 @@
 # mask = (arr > 20)
 # --then index using this mask
 # arr[mask] - will get all the elements that are more than 20
-# --you can use assignment usign mask as well
+# --you can use assignment using mask as well
 # arr[mask] = value
 # _________________ Tiling an array _________________
 # numpy.tile(A, reps) - construct the array repeating A the reps times
