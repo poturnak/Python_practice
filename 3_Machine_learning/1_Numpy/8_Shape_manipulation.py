@@ -35,3 +35,16 @@ print(v.transpose())
 m = np.arange(4)
 m.resize((10, ))
 print(m)
+
+# you can also sort data
+# sorting along the axis
+k = np.array([[4, 3, 5], [1, 2, 1]])
+k1 = np.sort(k, axis=1)
+print(k1)
+
+# sorting with fancy indexing
+arr = np.array([4, 3, 1, 2])
+j = np.argsort(arr)
+print(j)
+print(arr[j])
+

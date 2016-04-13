@@ -23,8 +23,8 @@
 
 # _________________ Random number generation _________________
 # np.random.seed(value) - set the initial value for pseudo random number generation algorithm
-# np.random.rand(x, y) - generate array of random numbers with x rowsn and y columns
-# np.random.randint(low, high=None, size=None) - return random integers from low(inclusive) to high(exclusive)
+# np.random.rand(x, y) - generate array of random numbers with x rows and y columns; number from [0, 1]
+# np.random.randint(low, high=None, size=None) - return random integers from [low, high)
 # np.random.random_integers(low, high=None, size=None) - return random integers from low(inclusive) to high(inclusive)
 
 # _________________ Indexing and slicing _________________
@@ -86,6 +86,10 @@
 # arr.std(axis optional) - return std
 # np.unique(arr) - find unique elements of the array
 # --axis=0 - over the column, axis=1 - over the row
+# _________________ Data types operations _________________
+# np.round(arr) - round all floats to significant integer; still be float
+# np.astype(int) - only retrive integers from float and represent array with integers
+# np.round(arr).astray(int) - round arr first then extract integers
 # ============================================================================================
 
 import numpy as np
