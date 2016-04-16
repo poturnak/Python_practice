@@ -9,8 +9,8 @@
 
 import numpy as np
 
-choices = [[0, 1, 2, 3], [10, 11, 12, 13], [20, 21, 22, 23], [30, 31, 32, 33]]
-indices = [2, 3, 0, 1]
+choices = np.array([[0, 1, 2, 3], [10, 11, 12, 13], [20, 21, 22, 23], [30, 31, 32, 33]])
+indices = [2, 3, 0, 0]
 
 result = np.choose(indices, choices)
 
@@ -25,12 +25,17 @@ print(result1)
 
 # let solve the problem
 # Generate a 10 x 3 array of random numbers (in range [0,1]). For each row, pick the number closest to 0.5
-
-np.random.seed(10)
-arr = np.random.rand(10, 3)
+print('-----------')
+np.random.seed(11)
+arr = np.random.rand(3, 2)
 print(arr)
 
 mask = np.argmin(abs(arr - 0.5), axis=1)
 print(mask)
+print(arr.T)
 result = np.choose(mask, arr.T)
+print('\nThe result is:')
 print(result)
+
+for i in range(0, 3):
+    print(arr[i][mask[i]])

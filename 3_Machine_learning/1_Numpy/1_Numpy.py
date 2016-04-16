@@ -74,6 +74,7 @@
 # np.logical_or(a, b) - do logical or with each element a with element b
 # np.logical_and(a, b) - do logical and between elements
 # np.sin(a), np.log(a), np.exp(a) - do operations on each element of a
+# np.pi - generate pi
 # np.sum(arr) - calculates the sum of all the elements
 # np.sum(axis=0) - returns the sum of all elements in each column (a, b, c) for matrix of 3 columns
 # np.sum(axis=1) - returns the sum of all elements in each row
@@ -159,3 +160,11 @@ print(b)
 print(b[np.array([1, 1]), [3, 4]])
 
 print(np.random.random_integers(0, 1, (10, 5)))
+
+A = np.array([[0, 1, 2], [0, 2, 0]])
+X = np.array([[0, 1, 2], [1, 2, 0], [2, 1, 2], [3, 2, 0]])
+
+print((X[X[:, 0]<3]))
+A = np.vstack((A, X[X[:, 0]<3]))
+print(A)
+
