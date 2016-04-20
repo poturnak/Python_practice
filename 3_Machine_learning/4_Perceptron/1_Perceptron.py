@@ -7,26 +7,19 @@ from matplotlib.colors import ListedColormap
 
 class Perceptron():
     """Perceptron classifier
-        eta: float, learning rate (between 0.0 and 1.0)
-        n_iter: int, passes over the training dataset
-        w_: 1D-array, weights after fitting
-        errors_: list, number of mis-classifications in every epoch
-    """
+        eta: learning rate (between 0.0 and 1.0), float type
+        n_iter: number of epochs, int
+        w_: 1D-array, weights after training
+        errors_: list, number of mis-classifications in every epoch """
     def __init__(self, eta=0.01, n_iter=10):
         self.eta = eta
         self.n_iter = n_iter
 
     def fit(self, X, y):
         """Processing training data
-            X: array, shape = [n_samples, n_features]
-                Training vectors, where n_samples is the number of samples
-                and n_features is the number of features
-            y: array, shape = [n_samples]
-                Target values
-        Returns:
-            self: object
-        """
-        self.w_ = np.zeros(1 + X.shape[1])
+            X: array of training vectors, shape = [n_samples, n_features]
+            y: array of target feature values, shape = [n_samples] """
+        self.w_ = np.zeros(1 + X.shape[1])  # determining the number of weights, need +1 since have w0
         self.errors_ = []
 
         for _ in range(self.n_iter):
@@ -116,3 +109,4 @@ print(X)
 Z = ppn.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
 print(Z)
 
+print(np.dot(np.array([[1, 2],[3, 4]]), [1, 2]))
