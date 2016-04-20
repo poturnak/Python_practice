@@ -65,7 +65,7 @@
 # --to create a slice in a new memory location you need to force copy
 # a = b[::2].copy() - forcing a copy on a slice
 # _________________ Numerical operations on arrays _________________
-# --to add to each element in array just ad the mumber
+# --to add to each element in array just ad the number
 # arr + 1 - will add 1 to each element
 # --to multiply, subtract, divide apply those operations on array
 # --you can do comparisons of each element between 2 arrays

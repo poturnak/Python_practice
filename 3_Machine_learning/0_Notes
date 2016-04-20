@@ -39,3 +39,12 @@ The modules we will be using:
 
 Perceptron takes input signals, applies weights to those signals(it learns the weights as it goes)
 Then if the overall signal exceed the threshold, the perceptron fires (meaning, generates output signal)
+Basically you have an activation function that based on the threshold spits out 1 or -1
+You take input signal x1, x2, x3, etc.
+Then take weights w1, w2, w3, etc.
+Multiply and get the result of activation function based on the threshold
+
+Basic perceptron rule is fairly simple:
+ - initialize the weights to 0 or small random numbers
+ - for each training sample perform the output value of activation function
+ - readjust the weights
