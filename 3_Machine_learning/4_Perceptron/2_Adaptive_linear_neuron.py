@@ -43,6 +43,7 @@ class AdalineGD( object):
         """ Return class label after unit step"""
         return np.where(self.activation(X) >= 0.0, 1, -1)
 
+
 def plot_decision_regions(X, y, classifier, resolution=0.02):
     # setup marker generator and color map
     markers = ('s', 'x', 'o', '^', 'v')
