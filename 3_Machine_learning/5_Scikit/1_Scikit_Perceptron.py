@@ -20,10 +20,10 @@ y = iris.target  # in this dataset the labels are stored as 0, 1, 2 for three fl
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
 # now let's standardize the data values (subtract the mean and divide by std)
-sc = StandardScaler()  # initialize the new object of standartization class
-sc.fit(X_train)  # fit method estimated the mean and std from the whole dataset for each dimesion
+sc = StandardScaler()  # initialize the new object of standardization class
+sc.fit(X_train)  # fit method estimated the mean and std from the whole dataset for each dimension
 X_train_std = sc.transform(X_train)
-X_test_std = sc.transform(X_test)
+X_test_std = sc.transform(X_test)  # we use the same parameters to standardize test set so that values are comparable
 
 # now let's train the Perceptron class
 # ove vs all method will be used so that we can feed tree classes to Perceptron
@@ -33,18 +33,19 @@ ppn.fit(X_train_std, y_train)
 # Having trained the Perceptron we can now make predictions using predict method
 # We can do manual calculations
 y_pred = ppn.predict(X_test_std)
+print(y_pred)
 # print('Misclassified samples: {}'.format((y_test != y_pred).sum()))
 # print('Classification accuracy: {}'.format((len(y_test) - (y_test != y_pred).sum())/len(y_test)))
 
-# we can also calculate prediction accurace using sckit
+# we can also calculate prediction accurace using scikit
 acc = accuracy_score(y_test, y_pred)
 print('Accuracy score: {0:4.3f}'.format(acc))
 
-# Now we will lt the regions using out contour plto function
+# Now we will plot the regions using out contour plto function
 
 def plot_decision_regions(X, y, classifier, resolution=0.02, test_idx=None):
     # setup marker generator and color map
-    markers = ('s', 'x', 'o', '^', 'v')
+    markers = ('s', 'x', 'v', 'o', '^')
     colors = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
     cmap = ListedColormap(colors[:len(np.unique(y))])
 
@@ -59,9 +60,8 @@ def plot_decision_regions(X, y, classifier, resolution=0.02, test_idx=None):
     plt.ylim(xx2.min(), xx2.max())
 
     # plot class samples
-    X_test, y_test = X[test_idx, :], y[test_idx]
     for idx, cl in enumerate(np.unique(y)):
-        plt.scatter(x=X[y == cl, 0], y = X[y == cl, 1], alpha = 0.8, c = cmap(idx), marker = markers[idx], label = cl)
+        plt.scatter(x=X[y == cl, 0], y=X[y == cl, 1], alpha=0.8, c=cmap(idx), marker=markers[idx], label=cl)
 
     # highlight test samples
     if test_idx:
@@ -70,7 +70,7 @@ def plot_decision_regions(X, y, classifier, resolution=0.02, test_idx=None):
 # _________________________________________________________________________________________________________________
 X_combined_std = np.vstack((X_train_std, X_test_std))
 y_combined = np.hstack((y_train, y_test))
-plot_decision_regions(X=X_combined_std, y=y_combined, classifier=ppn, test_idx=range(105, 150))
+plot_decision_regions(X_combined_std, y_combined, classifier=ppn, test_idx=range(105, 150))
 plt.xlabel('petal length [std]')
 plt.ylabel('petal width [std]')
 plt.legend(loc='upper left')
