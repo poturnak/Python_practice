@@ -33,7 +33,7 @@ class AdalineGD( object):
 
     def net_input(self, X):
         """ Calculate net input"""
-        return np.dot(X, self.w_[1:]) + self.w_[ 0]
+        return np.dot(X, self.w_[1:]) + self.w_[0]
 
     def activation( self, X):
         """ Compute linear activation"""
@@ -75,15 +75,16 @@ y = np.where(y == 'Iris-setosa', -1, 1)
 
 # not let's build the X array and extract the 100 first features (sepal length and petal length) and put that into array
 X = df.iloc[0:100, [0, 2]].values
+print(X.T)
 
 # now let's train our ADALINE with the data that we just extracted
-ppn = AdalineGD(eta=0.0001, n_iter=100)
+ppn = AdalineGD(eta=0.01, n_iter=10)
 ppn.fit(X, y)
 plot_decision_regions(X, y, classifier=ppn )
 
 # let's now plot the cost against the number of epochs and learning coefficient
 fig, ax = plt.subplots(nrows = 1, ncols = 2, figsize =(8, 4))
-ada1 = AdalineGD(n_iter=10, eta=0.1).fit(X, y)
+ada1 = AdalineGD(n_iter=10, eta=0.01).fit(X, y)
 ax[0].plot(range(1, len(ada1.cost_) + 1), np.log10(ada1.cost_), marker ='o')
 ax[0].set_xlabel('Epochs')
 ax[0].set_ylabel('log(Sum-squared-error)')
