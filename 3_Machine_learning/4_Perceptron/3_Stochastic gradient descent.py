@@ -80,7 +80,8 @@ class AdalineSGD( object):
         if y.ravel().shape[0] > 1:
             for xi, target in zip(X, y):
                 self._update_weights(xi, target)
-        else: self._update_weights(X, y)
+        else:
+            self._update_weights(X, y)
         return self
 
 def plot_decision_regions(X, y, classifier, resolution=0.02):
@@ -128,15 +129,4 @@ plt.plot(range( 1, len(ada.cost_) + 1),ada.cost_, marker='o')
 plt.xlabel('Epochs')
 plt.ylabel('Average Cost')
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
 

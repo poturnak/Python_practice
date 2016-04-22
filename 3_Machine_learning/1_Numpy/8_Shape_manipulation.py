@@ -11,6 +11,8 @@ b1 = a.T.ravel()
 print(b)
 print(b1)
 
+print(a.shape)
+
 # you can also reshape the array to the 2D form you want
 print(b.shape)
 b = b.reshape((3, 2))

@@ -114,3 +114,5 @@ plt.plot(range(1, len(ada.cost_) + 1), ada.cost_, marker='o')
 plt.xlabel('Epochs')
 plt.ylabel('Sum-squared-error')
 plt.show()
+
+print(np.dot(X, ppn.w_[1:]) + ppn.w_[0])
