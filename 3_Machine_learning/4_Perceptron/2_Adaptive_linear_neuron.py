@@ -78,7 +78,7 @@ X = df.iloc[0:100, [0, 2]].values
 print(X.T)
 
 # now let's train our ADALINE with the data that we just extracted
-ppn = AdalineGD(eta=0.01, n_iter=10)
+ppn = AdalineGD(eta=0.01, n_iter=1)
 ppn.fit(X, y)
 plot_decision_regions(X, y, classifier=ppn )
 
@@ -115,4 +115,4 @@ plt.xlabel('Epochs')
 plt.ylabel('Sum-squared-error')
 plt.show()
 
-print(np.dot(X, ppn.w_[1:]) + ppn.w_[0])
+print(ppn.w_)
