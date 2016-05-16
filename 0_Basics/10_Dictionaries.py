@@ -1,16 +1,17 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
 # ===================================================================================================
-# +++++++++ Working with relative and absolute paths +++++++++
+# +++++++++ Working with dictionaries +++++++++
 # set() - creating a list of unique items
 # for example set(dictionary.keys())
+# --
 # you can use get method to get value from dictionary
 # if key does not exist, the function will fall back to certain value
 # dictionary.get('key', 'fallback_value')
-# setdefault() helps to check if value is in dictiomary
+# setdefault() helps to check if value is in dictionary
 # dictionary.setdefault('key', 'value')
 # 'key' is the key to search for
 # if key exists original value is returned
-# if key does not exist, value is returns from setdefault method, and key value pair is added to dictionary
+# if key does not exist, value is returned from setdefault method, and key value pair is added to dictionary
 # ===================================================================================================
 spouse = {'name': 'tatyana', 'age': '29', 'city': 'NovoSIbirsk'}
 
@@ -202,7 +203,7 @@ for letter in message_string:
 
 print(message_letter)
 
-# in this example we will use pprint module to beautify the printing of dictionary and list structurees
+# in this example we will use pprint module to beautify the printing of dictionary and list structures
 
 import pprint
 
