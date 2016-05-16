@@ -26,13 +26,13 @@
 # ' '.join(['string1', 'string2']) - join in called on the set of strings that you want to merge
 #                                  - start the command with 'separator'; will separate the strings
 #                                  - input is the list; output is string
-# string.split(separator) - split the stinrg into multiple strings
+# string.split(separator) - split the string into multiple strings
 #                - input is string; output is list
 #                - enter the separator to split on; default is ' '
 # ---------------- Justification --------------------
 # string.rjust(total, '^') - justify string within the string
 #                          - total is the new string length
-#                          - symbol is what you will fill the emty sybmols with; ' ' default
+#                          - symbol is what you will fill the emty symbols with; ' ' default
 # string.ljust() - justify into the new string to the left
 # string.center() - justify the string within the string of certain length
 # ===================================================================================================
