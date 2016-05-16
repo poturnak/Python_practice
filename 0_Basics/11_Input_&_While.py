@@ -91,7 +91,7 @@ animals = ['dog', 'cat', 'cow', 'sheep', 'cat', 'cat']
 while 'cat' in animals:
     animals.remove('cat')
 
-print(animals)'''
+print(animals)  '''
 
 # in this example we will create the polling program using dictionary
 # we will create dictionary within dictionary
@@ -114,11 +114,3 @@ while True:
     else:
         break
 print(polling_users)
-
-
-
-
-
-
-
-
