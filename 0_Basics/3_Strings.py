@@ -9,7 +9,7 @@
 # len(string) - returns the length of the string
 # str(variable) - turn something into a string (number, list, etc.)
 # string.title() - make all word in a string to start with capital letter
-# string.capitalize() - xapitalize the first word in a string
+# string.capitalize() - capitalize the first word in a string
 # string.lstrip() - remove whitespaces on the left of string
 # string.rstrip() - remove whitespaces to the right of string
 # string.strip() - remove whitespaces on the left and right of string

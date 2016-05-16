@@ -20,7 +20,7 @@ print('World')
 
 # You can also define what separator to use with print() function
 print('dog', 'cat', 'cow')
-print('dog', 'cat', 'cow', sep=', ')
+print('dog', 'cat', 'cow', sep='% ')
 
 # in this case we will use pprint
 import pprint
