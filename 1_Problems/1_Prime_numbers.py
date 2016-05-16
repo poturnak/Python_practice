@@ -16,7 +16,8 @@ while len(array_all) > 0:
     array_primes.append(array_all[0])
 
     while (array_all[0] * counter) <= array_all[-1]:
-        if array_all[0] * counter in array_all: array_all.remove(array_all[0] * counter)
+        if array_all[0] * counter in array_all:
+            array_all.remove(array_all[0] * counter)
         counter += 1
     del array_all[0]
 
