@@ -29,7 +29,7 @@
 #        'r' - read 'w' - write 'a' - append 'r+' - read/write
 # file_object.read() - will read all contents of the file into a string
 # file_object.readlines() - will read all lines into a list of lines
-# file_object.write() - will write contents toa file
+# file_object.write() - will write contents to a file
 # 'r' - overwrites the file
 # 'a' - adds stuff to the file
 # shelve - module is used to store variables into a file

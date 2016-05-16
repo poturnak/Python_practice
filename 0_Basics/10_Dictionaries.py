@@ -1,5 +1,4 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
-# In the python file we will explore how to work with files in python
 # ===================================================================================================
 # +++++++++ Working with relative and absolute paths +++++++++
 # set() - creating a list of unique items
