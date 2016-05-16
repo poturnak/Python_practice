@@ -52,7 +52,7 @@ i = full_name('nikolay', 'poturnak')
 
 print(i)
 
-# Sometime we can make some of the arguments optional. In the following example we work with optional middle names
+# Sometimes we can make some of the arguments optional. In the following example we work with optional middle names
 
 def full_3_names (first, last, middle = ''):
     if middle:
