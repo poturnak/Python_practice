@@ -8,13 +8,13 @@ class Dog():
         self.age = age
 
     def sit(self):
-        print(self.name.capitalize() + ' is not sitting')
+        print(self.name.capitalize() + ' is now sitting')
 
     def roll_over(self):
         print(self.name.capitalize() + ' rolled over')
 
 my_dog = Dog('john', 8)
-my_dog.roll_over()
+my_dog.sit()
 my_dog.roll_over()
 
 # Here is how you can directly change the attribute of a class
@@ -204,7 +204,3 @@ admin_1.registration_id = 200
 admin_1.print_user()
 print(admin_1.occupation)
 admin_1.privilege.show_privileges()
-
-
-
-
