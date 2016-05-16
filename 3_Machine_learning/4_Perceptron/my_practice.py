@@ -20,3 +20,7 @@ for i in range(1):
     theta = theta - alpha * (np.dot(X.T, error))
 
 print(theta)
+
+
+m = np.array([[1, 2, 3], [4, 5, 6]])
+print(m[0,1])

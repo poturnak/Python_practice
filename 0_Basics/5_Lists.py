@@ -15,7 +15,7 @@
 #                   - removes by the value
 # del list[index] - delete item from the list using index
 # list.index(value) - get the index of certain value in the list
-#                   - retunrs index number if the value exists
+#                   - returns index number if the value exists
 # list.pop(position) - pop the item from certain position in the list; 0 by default
 # list.sort(reverse=True) - sort list alphabetically; use reverse if reverse sorting is needed
 # list.reverse() - reverse the existing sorting in the list
