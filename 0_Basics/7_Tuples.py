@@ -1,6 +1,6 @@
 # in terms of python variables that can not change are called IMMUTABLE
 # list of IMMUTABLE items in called TUPLE
-# TUPLES are defined using parenthesis instead of square bracketa
+# TUPLES are defined using parenthesis instead of square brackets
 
 dimensions = (200, 50)
 print(dimensions[0])
