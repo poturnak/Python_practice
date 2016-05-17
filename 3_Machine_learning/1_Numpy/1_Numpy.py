@@ -3,6 +3,7 @@
 # _________________ Intro _________________
 # var.ndim - show number of dimensions (rows)
 # var.shape - show the number of items in the dimension
+# --for 3D arrays indexing is read as the following (depth index, row index, column index)
 # var.dtype - print the data type of the elements in the array
 # --floats are displayed with the trailing comma
 # --you can explicitly specify the data type that you want by passing dtype when creating array
@@ -89,7 +90,7 @@
 # --axis=0 - over the column, axis=1 - over the row
 # _________________ Data types operations _________________
 # np.round(arr) - round all floats to significant integer; still be float
-# np.astype(int) - only retrive integers from float and represent array with integers
+# np.astype(int) - only retrieve integers from float and represent array with integers
 # np.round(arr).astray(int) - round arr first then extract integers
 # ============================================================================================
 
@@ -104,9 +105,10 @@ b = np.array([[1, 2, 3, 4, 5],
               [0, 1, 2, 3, 4]])
 print(b.ndim)
 print(b.shape)
-
+print('----')
 c = np.array([[[1, 2, 3], [4, 5, 6]], [[6, 7, 8], [9, 10, 11]], [[12, 13, 14], [15, 16, 17]]])
 print(c.shape)
+print(c[2, 0, 1])
 
 a = np.arange(10)
 print(a)
