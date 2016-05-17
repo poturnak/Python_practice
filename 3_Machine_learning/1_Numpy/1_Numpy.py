@@ -25,14 +25,14 @@
 # _________________ Random number generation _________________
 # np.random.seed(value) - set the initial value for pseudo random number generation algorithm
 # np.random.rand(x, y) - generate array of random numbers with x rows and y columns; number from [0, 1]
-# np.random.randint(low, high=None, size=None) - return random integers from [low, high)
+# np.random.randint(low, high=None, size=None) - return random integers from [low, high), size can be (2, 4) md array
 # np.random.random_integers(low, high=None, size=None) - return random integers from low(inclusive) to high(inclusive)
 
 # _________________ Indexing and slicing _________________
 # --you can do just indexing to extract data or you can assign values using indexing
 # --SINGLE ELEMENT INDEXING
 # arr[n, n, n] - get the item from the array; indices begin at 0; returns a single item
-# --you can get the whole line if you omit some indexes
+# --you can get the whole line if you omit some indices
 # arr[n] - returns the whole line if arr is multidimensional array
 # --SLICING FOR INDEXING
 # --slicing returns the view of the array
@@ -71,7 +71,7 @@
 # --to multiply, subtract, divide apply those operations on array
 # --you can do comparisons of each element between 2 arrays
 # a == b, a > b - each element of a is compared with element b and the bitvector is generated
-# np.array_equal(a, b) - array wise comparisons (will retunrn only True or False)
+# np.array_equal(a, b) - array wise comparisons (will return only True or False)
 # np.logical_or(a, b) - do logical or with each element a with element b
 # np.logical_and(a, b) - do logical and between elements
 # np.sin(a), np.log(a), np.exp(a) - do operations on each element of a
@@ -164,9 +164,14 @@ print(b[np.array([1, 1]), [3, 4]])
 print(np.random.random_integers(0, 1, (10, 5)))
 
 A = np.array([[0, 1, 2], [0, 2, 0]])
-X = np.array([[0, 1, 2], [1, 2, 0], [2, 1, 2], [3, 2, 0]])
+
+X = np.array([[0, 1, 2],
+              [1, 2, 0],
+              [2, 1, 2],
+              [3, 2, 0]])
 
 print((X[X[:, 0]<3]))
 A = np.vstack((A, X[X[:, 0]<3]))
 print(A)
-
+print('\n')
+print(X[1])

@@ -2,5 +2,17 @@
 
 import numpy as np
 
-a = np.zeros((2, 3, 4))
+a = np.exp(2j*np.pi*np.arange(3))
 print(a)
+print(a[:,np.newaxis])
+print(a[np.newaxis, :])
+b = a[:,np.newaxis] + a[np.newaxis,:]
+np.fft.fftn(b)
+
+
+
+arr = np.arange(35).reshape(5, 7)
+print(arr)
+
+print(arr[[1, 3, 3]])
+print(arr.shape)

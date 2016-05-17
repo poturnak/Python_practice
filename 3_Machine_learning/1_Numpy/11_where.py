@@ -2,7 +2,7 @@
 
 import numpy as np
 
-# where lets; you specify condition (mask)
+# where lets you specify condition (mask)
 # then you can choose elements from x if true, otherwise elements from y will be returned
 
 # in this particular case we are working with 2D array
@@ -13,7 +13,7 @@ print(x)
 print(np.where(x > 5))
 
 # in this particular scenario we will specify x and y
-# x is what ti return in case true, y is what to return in case false
+# x is what it returns in case true, y is what to return in case false
 
 print(np.where(x>5, 1, 2))
 
