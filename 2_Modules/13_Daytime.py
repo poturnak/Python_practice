@@ -36,7 +36,7 @@ print(dt.day, dt.hour)
 
 today = time.time()
 print(datetime.datetime.fromtimestamp(today))
-
+print('----')
 # using the delta object
 delta = datetime.timedelta(days=1)
 print(delta.total_seconds())
