@@ -37,5 +37,7 @@ result = np.choose(mask, arr.T)
 print('\nThe result is:')
 print(result)
 
-for i in range(0, 3):
-    print(arr[i][mask[i]])
+# for i in range(0, 3):
+#     print(arr[i][mask[i]])
+index = np.vstack((np.arange(3), mask))
+print(arr[np.arange(3), mask])
