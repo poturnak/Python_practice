@@ -2,7 +2,7 @@
 
 import numpy as np
 
-# meshgri creates the mesh of all coordinates
+# meshgrid creates the mesh of all coordinates
 # take vector x and vector y
 # generate all coordinates from that vector
 # x1,y1, x2y2, etc.
