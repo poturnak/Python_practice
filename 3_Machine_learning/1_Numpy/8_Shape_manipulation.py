@@ -18,7 +18,7 @@ print(b.shape)
 b = b.reshape((3, 2))
 print(b)
 b[0, 0] = 99
-print(a)  # if the copy was not made, you work withy reference, thus, a will also be changed
+print(a)  # if the copy was not made, you work with reference, thus, a will also be changed
 
 d = np.array([[1, 2, 3], [4, 5, 6]])
 print(d.reshape((3, 2)))
