@@ -119,7 +119,7 @@ print(a)
 c = np.linspace(0, .5, 4)
 
 # creating common arrays
-a = np.ones((5, 5, 5))
+a = np.ones((5, 5, 4))
 print(a)
 
 a = np.random.rand(3, 3, 3)

@@ -3,7 +3,7 @@
 # nonzero() returns the tuple of arrays
 # for 1 dimensional array there will be one item, for 2D 2 items, for 3D 3 items
 # then each tuple represent the index value
-# 1st tuple is row of non zeor item, 2nd tuple is column etc.
+# 1st tuple is row of non zero item, 2nd tuple is column etc.
 
 import numpy as np
 
@@ -15,7 +15,7 @@ print(b)
 
 print(a[a.nonzero()])  # returns all nonzero items from the array
 
-# if you want to group be element bu not by index, you can use transpose function
+# if you want to group the elements not by index, you can use transpose function
 
 print(np.transpose(a.nonzero()))
 

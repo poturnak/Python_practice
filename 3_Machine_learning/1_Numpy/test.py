@@ -16,3 +16,7 @@ print(arr)
 
 print(arr[[1, 3, 3]])
 print(arr.shape)
+
+
+array = np.arange(6) + np.arange(0, 51, 10)[:, np.newaxis]
+print(array)
