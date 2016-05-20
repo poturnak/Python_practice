@@ -32,7 +32,7 @@ class Perceptron:
         self.cost.append(np.sum(((np.dot(X, self.theta) - y[:, np.newaxis])** 2) / X.shape[0] / 2))
 
     def predict(self, X, flag=False):
-        if flag == True:
+        if flag:
             X = np.hstack((np.ones((X.shape[0], 1)), X))
         return np.where(np.dot(X, self.theta) > 0, 1, -1)
 
