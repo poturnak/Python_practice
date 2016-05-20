@@ -29,7 +29,7 @@ class Perceptron:
     def calculate_cost(self, X):
         errors = self.predict(X) - y[:, np.newaxis]
         self.error.append(np.count_nonzero(errors))
-        self.cost.append(np.sum((np.dot(X, self.theta) ** 2) / X.shape[0] / 2))
+        self.cost.append(np.sum(((np.dot(X, self.theta) - y[:, np.newaxis])** 2) / X.shape[0] / 2))
 
     def predict(self, X, flag=False):
         if flag == True:
@@ -98,3 +98,4 @@ plt.show()
 
 print(ppn.theta)
 print(ppn.error)
+print(ppn.cost)
