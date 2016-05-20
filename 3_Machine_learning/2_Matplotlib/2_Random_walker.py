@@ -16,6 +16,6 @@ mean_sq_distance = np.mean(sq_distance, axis=0)
 print(mean_sq_distance)
 
 # plotting the results
-plt.plot(t, np.sqrt(mean_sq_distance), 'g.', t, np.sqrt(t), 'y-')
+plt.plot(t, np.sqrt(mean_sq_distance), 'g.', t, np.sqrt(t), 'y--')
 plt.show()
 

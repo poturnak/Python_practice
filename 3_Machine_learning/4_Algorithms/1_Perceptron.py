@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 from matplotlib.colors import ListedColormap
 
 
-class Perceptron():
+class Perceptron:
     """Perceptron classifier
         eta: learning rate (between 0.0 and 1.0), float type
         n_iter: number of epochs, int
