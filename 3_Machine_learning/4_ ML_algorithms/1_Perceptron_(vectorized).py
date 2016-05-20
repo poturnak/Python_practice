@@ -17,16 +17,23 @@ class Perceptron:
         self.n_iter = n_iter
         self.theta = np.array([])
         self.cost = []
+        self.error = []
 
     def fit(self, X, y):
         X = np.hstack((np.ones((X.shape[0], 1)), X))  # we add column of ones to account for bias
         self.theta = np.random.rand(X.shape[1], 1)  # theta is a column vector
         for _ in range(self.n_iter):
-            self.cost.append(np.sum((np.dot(X, self.theta) - y[:, np.newaxis]) ** 2) / X.shape[0] / 2)
             self.theta -= np.dot(X.T, (np.dot(X, self.theta) - y[:, np.newaxis])) / X.shape[0] * self.eta
+            self.calculate_cost(X)
 
-    def predict(self, X):
-        X = np.hstack((np.ones((X.shape[0], 1)), X))
+    def calculate_cost(self, X):
+        errors = self.predict(X) - y[:, np.newaxis]
+        self.error.append(np.count_nonzero(errors))
+        self.cost.append(np.sum((np.dot(X, self.theta) ** 2) / X.shape[0] / 2))
+
+    def predict(self, X, flag=False):
+        if flag == True:
+            X = np.hstack((np.ones((X.shape[0], 1)), X))
         return np.where(np.dot(X, self.theta) > 0, 1, -1)
 
 
@@ -40,7 +47,7 @@ def plot_decision_regions(X, y, classifier, resolution=0.02):
     x1_min, x1_max = X[:, 0].min() - 1, X[:, 0].max() + 1
     x2_min, x2_max = X[:, 1].min() - 1, X[:, 1].max() + 1
     xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution), np.arange(x2_min, x2_max, resolution))
-    Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
+    Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T, flag=True)
     Z = Z.reshape(xx1.shape)
     plt.contourf(xx1, xx2, Z, alpha=0.4, cmap=cmap)
     plt.xlim(xx1.min(), xx1.max())
@@ -70,10 +77,16 @@ plt.show()
 ppn = Perceptron(eta=0.01, n_iter=100)
 ppn.fit(X, y)
 
-# now let's plot the cost function for our perceptron
+# now let's plot the cost function & number of misclassifications for our perceptron
+plt.figure()
+plt.subplot(2, 1, 1)
 plt.plot(range(len(ppn.cost)), ppn.cost, marker='o')
 plt.xlabel('Epochs')
 plt.ylabel('Cost function')
+plt.subplot(2, 1, 2)
+plt.plot(range(len(ppn.error)), ppn.error, marker='x', color='red')
+plt.xlabel('Epochs')
+plt.ylabel('Error misclassification')
 plt.show()
 
 # let's plot the contour plot
@@ -84,3 +97,4 @@ plt.legend(loc='upper left')
 plt.show()
 
 print(ppn.theta)
+print(ppn.error)
