@@ -20,7 +20,7 @@ from matplotlib.colors import ListedColormap
 from numpy.random import seed
 
 
-class AdalineSGD( object):
+class AdalineSGD:
     """ ADALINE with stochastic gradient descent"""
 
     def __init__(self, eta=0.01, n_iter=10, shuffle=True, random_state=None):
@@ -129,4 +129,3 @@ plt.plot(range( 1, len(ada.cost_) + 1),ada.cost_, marker='o')
 plt.xlabel('Epochs')
 plt.ylabel('Average Cost')
 plt.show()
-
