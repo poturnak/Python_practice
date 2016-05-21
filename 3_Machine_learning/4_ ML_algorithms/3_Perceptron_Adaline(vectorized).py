@@ -1,4 +1,7 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
+# This difference for Adaline that we use net-input values to undate the weights
+# Once you get net input, you subtract the target value and then adjust weights
+# For perceptron you convert predicted value to step function first, then you update weights
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -21,9 +24,11 @@ class Perceptron:
 
     def fit(self, X, y):
         X = np.hstack((np.ones((X.shape[0], 1)), X))  # we add column of ones to account for bias
-        # self.theta = np.random.rand(X.shape[1], 1)  # theta is a column vector (in case you want random weights)
+        #self.theta = np.random.rand(X.shape[1], 1)  # theta is a column vector
         for _ in range(self.n_iter):
             self.theta -= np.dot(X.T, (self.predict(X) - y[:, np.newaxis])) / X.shape[0] * self.eta
+
+            #self.theta -= np.dot(X.T, (np.dot(X, self.theta) - y[:, np.newaxis])) / X.shape[0] * self.eta
             self.calculate_cost(X)
 
     def calculate_cost(self, X):
