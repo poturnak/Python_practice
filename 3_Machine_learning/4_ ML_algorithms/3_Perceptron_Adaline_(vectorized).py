@@ -75,10 +75,16 @@ plt.xlabel('petal length [cm]')
 plt.ylabel('sepal length [cm]')
 plt.legend(loc='upper left')
 plt.show()
+
+# now let's standardize the features that we have
+X_std = np.copy(X)
+X_std[:, 0] = (X_std[:, 0] - np.mean(X_std[:, 0])) / np.std(X_std[:, 1])
+X_std[:, 1] = (X_std[:, 1] - np.mean(X_std[:, 1])) / np.std(X_std[:, 1])
+
 # ---------------------------------------------------------------------------------------------------
 # now let's train our perceptron with the data that we just extracted
-ppn = Perceptron(eta=0.01, n_iter=100)
-ppn.fit(X, y)
+ppn = Perceptron(eta=1, n_iter=100)
+ppn.fit(X_std, y)
 
 # now let's plot the cost function & number of misclassifications for our perceptron
 plt.figure()
@@ -93,7 +99,7 @@ plt.ylabel('Error misclassification')
 plt.show()
 
 # let's plot the contour plot
-plot_decision_regions(X, y, classifier=ppn)
+plot_decision_regions(X_std, y, classifier=ppn)
 plt.xlabel('sepal length [cm]')
 plt.ylabel('petal length [cm]')
 plt.legend(loc='upper left')
