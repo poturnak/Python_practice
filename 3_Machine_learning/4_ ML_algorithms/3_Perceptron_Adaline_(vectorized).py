@@ -83,7 +83,7 @@ X_std[:, 1] = (X_std[:, 1] - np.mean(X_std[:, 1])) / np.std(X_std[:, 1])
 
 # ---------------------------------------------------------------------------------------------------
 # now let's train our perceptron with the data that we just extracted
-ppn = Perceptron(eta=1, n_iter=100)
+ppn = Perceptron(eta=1, n_iter=50)
 ppn.fit(X_std, y)
 
 # now let's plot the cost function & number of misclassifications for our perceptron
@@ -107,4 +107,4 @@ plt.show()
 
 print(ppn.theta)
 print(ppn.error)
-print(ppn.cost)
+print(ppn.cost[-1])
