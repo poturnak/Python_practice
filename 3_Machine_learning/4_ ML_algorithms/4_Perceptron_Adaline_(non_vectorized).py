@@ -84,7 +84,7 @@ plot_decision_regions(X, y, classifier=ppn )
 
 # let's now plot the cost against the number of epochs and learning coefficient
 fig, ax = plt.subplots(nrows = 1, ncols = 2, figsize =(8, 4))
-ada1 = AdalineGD(n_iter=10, eta=0.01).fit(X, y)
+ada1 = AdalineGD(n_iter=10, eta=0.001).fit(X, y)
 ax[0].plot(range(1, len(ada1.cost_) + 1), np.log10(ada1.cost_), marker ='o')
 ax[0].set_xlabel('Epochs')
 ax[0].set_ylabel('log(Sum-squared-error)')

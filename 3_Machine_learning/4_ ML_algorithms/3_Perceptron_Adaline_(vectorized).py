@@ -26,7 +26,7 @@ class Perceptron:
         X = np.hstack((np.ones((X.shape[0], 1)), X))  # we add column of ones to account for bias
         # self.theta = np.random.rand(X.shape[1], 1)  # theta is a column vector
         for _ in range(self.n_iter):
-            self.theta -= np.dot(X.T, (np.dot(X, self.theta) - y[:, np.newaxis])) / X.shape[0] * self.eta
+            self.theta -= np.dot(X.T, (np.dot(X, self.theta) - y[:, np.newaxis])) / X.shape[0]* self.eta
             self.calculate_cost(X)
 
     def calculate_cost(self, X):
