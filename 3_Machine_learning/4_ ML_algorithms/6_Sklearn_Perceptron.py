@@ -22,6 +22,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 # now let's standardize the data values (subtract the mean and divide by std)
 sc = StandardScaler()  # initialize the new object of standardization class
 sc.fit(X_train)  # fit method estimated the mean and std from the whole dataset for each dimension
+print('The means for standardization', sc.mean_)  # print the array of means for each feature
+print('The variance for standardization', sc.var_)  # print the array of variances for each feature
 X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)  # we use the same parameters to standardize test set so that values are comparable
 
