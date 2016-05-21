@@ -39,11 +39,11 @@ print(y_pred)
 # print('Misclassified samples: {}'.format((y_test != y_pred).sum()))
 # print('Classification accuracy: {}'.format((len(y_test) - (y_test != y_pred).sum())/len(y_test)))
 
-# we can also calculate prediction accurace using scikit
+# we can also calculate prediction accuracy using scikit
 acc = accuracy_score(y_test, y_pred)
 print('Accuracy score: {0:4.3f}'.format(acc))
 
-# Now we will plot the regions using out contour plto function
+# Now we will plot the regions using out contour plot function
 
 def plot_decision_regions(X, y, classifier, resolution=0.02, test_idx=None):
     # setup marker generator and color map
