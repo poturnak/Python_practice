@@ -24,11 +24,9 @@ class Perceptron:
 
     def fit(self, X, y):
         X = np.hstack((np.ones((X.shape[0], 1)), X))  # we add column of ones to account for bias
-        #self.theta = np.random.rand(X.shape[1], 1)  # theta is a column vector
+        # self.theta = np.random.rand(X.shape[1], 1)  # theta is a column vector
         for _ in range(self.n_iter):
-            self.theta -= np.dot(X.T, (self.predict(X) - y[:, np.newaxis])) / X.shape[0] * self.eta
-
-            #self.theta -= np.dot(X.T, (np.dot(X, self.theta) - y[:, np.newaxis])) / X.shape[0] * self.eta
+            self.theta -= np.dot(X.T, (np.dot(X, self.theta) - y[:, np.newaxis])) / X.shape[0] * self.eta
             self.calculate_cost(X)
 
     def calculate_cost(self, X):
@@ -79,7 +77,7 @@ plt.legend(loc='upper left')
 plt.show()
 # ---------------------------------------------------------------------------------------------------
 # now let's train our perceptron with the data that we just extracted
-ppn = Perceptron(eta=0.01, n_iter=10)
+ppn = Perceptron(eta=0.01, n_iter=100)
 ppn.fit(X, y)
 
 # now let's plot the cost function & number of misclassifications for our perceptron
