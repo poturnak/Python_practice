@@ -7,6 +7,7 @@ from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn import datasets
 from matplotlib.colors import ListedColormap
+from sklearn.metrics import accuracy_score
 
 
 def sigmoid(z):
@@ -78,3 +79,9 @@ plt.ylabel('petal width std')
 plt.legend(loc='upper left')
 plt.show()
 
+# to predict the class of the sample once you trained the model you can use the following
+predictions = lr.predict_proba(X_test_std)
+test_results = np.argmax(predictions, axis=1)
+# print('Test results accuracy: ', np.count_nonzero(test_results != y_train) / len(y_test))
+acc = accuracy_score(y_test, test_results)
+print('Test results accuracy: {0:4.2f}'.format(acc))
