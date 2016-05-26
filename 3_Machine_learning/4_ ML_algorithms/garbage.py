@@ -23,4 +23,6 @@ print(theta)
 
 
 m = np.array([[1, 2, 3], [4, 5, 6]])
-print(m[0,1])
+print(m)
+
+print(np.where(m > 4, 'True', m))
