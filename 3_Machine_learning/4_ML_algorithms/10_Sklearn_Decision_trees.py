@@ -45,7 +45,7 @@ y = iris.target  # in this dataset the labels are stored as 0, 1, 2 for three fl
 # 30% (45 samples) will go into the test set, 70% (105 samples) will go into training set
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
-tree = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0)
+tree = DecisionTreeClassifier(criterion='entropy', random_state=0)
 tree.fit(X_train, y_train)
 X_combined = np.vstack((X_train, X_test))
 y_combined = np.hstack((y_train, y_test))
