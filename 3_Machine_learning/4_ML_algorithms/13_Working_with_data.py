@@ -34,6 +34,8 @@ imr = imr.fit(df)
 imputed_data = imr.transform(df.values)
 print(imputed_data)
 
+# Now, we are going to take a look at how we are going to handle categorical data
+
 
 
 
