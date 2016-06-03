@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 from io import StringIO
 from sklearn.preprocessing import Imputer
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
 
 csv_data = '''A,B,C,D
 1.0,2.0,3.0,4.0
@@ -67,4 +69,16 @@ print(df1)
 inv_class_mapping = {i: j for j, i in class_mapping.items()}
 df1['classlabel'] = df1['classlabel'].map(inv_class_mapping)
 print(df1)
+
+# Let's now perform one-hot encoding for nominal features
+X = df1[['color', 'size', 'price']].values
+color_le = LabelEncoder()
+X[:, 0] = color_le.fit_transform(X[:, 0])
+print(X)
+# if we convert nominal features into numbers we will make a mistake
+# since algorithm will think that there is order in those numbers
+# there is other approach to follow, and that is one-hot encoding
+# where you create one dummy feature for each unique value of nominal value
+ohe = OneHotEncoder(categorical_features=[0])  # categorical_features defines the position of the column to tranform
+print(ohe.fit_transform(X).toarray())
 
