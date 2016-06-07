@@ -56,5 +56,3 @@ plt.xscale('log')
 plt.legend(loc='upper left')
 ax.legend(loc='lower left', ncol=1, fancybox=True)
 plt.show()
-
-
