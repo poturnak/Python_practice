@@ -41,7 +41,9 @@ class SBS:
         train_x, test_x, train_y, test_y = \
             train_test_split(x, y, test_size=self.test_size, random_state=self.random_state)
         dimensions = train_x.shape[1]
-        combination = range(dimensions)
+        print(dimensions)
+        combination = list(range(dimensions))
+        print(combination)
 
         while dimensions > self.feature_lim:
             scores = []
@@ -79,3 +81,17 @@ plt.ylabel('Accuracy')
 plt.xlabel('Number of features')
 plt.grid()
 plt.show()
+
+# Now let's evaluate the performance of our KNN classifier using all features
+knn.fit(X_train_std, y_train)
+print('Training accuracy:', knn.score(X_train_std, y_train))
+print('Test accuracy:', knn.score(X_test_std, y_test))
+
+# Now let's use only 7 features that we selected to evaluate the KNN performance
+print('Features to choose: ', sbs.best_combinations[6])
+features7 = sbs.best_combinations[6]
+knn.fit(X_train_std[:, features7], y_train)
+print('Training accuracy:', knn.score(X_train_std[:, features7], y_train))
+print('Test accuracy:', knn.score(X_test_std[:, features7], y_test))
+
+
