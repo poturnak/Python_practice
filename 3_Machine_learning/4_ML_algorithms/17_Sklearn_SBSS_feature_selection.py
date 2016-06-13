@@ -23,7 +23,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 class SBS:
-    def __init__(self, estimator, feature_lim, test_size = 0.25, random_state=0):
+    def __init__(self, estimator, feature_lim, test_size=0.25, random_state=0):
         self.estimator = clone(estimator)
         self.feature_lim = feature_lim
         self.test_size = test_size
@@ -31,24 +31,24 @@ class SBS:
         self.best_scores = []
         self.best_combinations = []
 
-    def predict(self, X_train, y_train, X_test, y_test):
-        self.estimator.fit(X_train, y_train)
-        y_pred = self.estimator.predict(X_test)
-        score = accuracy_score(y_test, y_pred)
+    def calc_score(self, x, y, test_x, test_y):
+        self.estimator.fit(x, y)
+        pred_y = self.estimator.predict(test_x)
+        score = accuracy_score(test_y, pred_y)
         return score
 
-    def fit(self, X, y):
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.test_size, random_state=self.random_state)
-        dimensions = X_train.shape[1]
+    def fit(self, x, y):
+        train_x, test_x, train_y, test_y = \
+            train_test_split(x, y, test_size=self.test_size, random_state=self.random_state)
+        dimensions = train_x.shape[1]
         combination = range(dimensions)
 
         while dimensions > self.feature_lim:
             scores = []
             features = []
             for i in combinations(combination, r=dimensions):
-                scores.append(self.predict(X_train[:, i], y_train, X_test[:, i], y_test))
+                scores.append(self.calc_score(train_x[:, i], train_y, test_x[:, i], test_y))
                 features.append(i)
-            print(scores)
             self.best_scores.append(max(scores))
             self.best_combinations.append(features[np.argmax(scores)])
             dimensions -= 1
@@ -62,14 +62,14 @@ df_wine.columns = ['Class label', 'Alcohol', 'Malic acid', 'Ash', 'Alcalinity of
 X, y = df_wine.iloc[:, 1:].values, df_wine.iloc[:, 0].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
-# Standartization - center all the features around mean 0 and std of 1
+# Standardization - center all the features around mean 0 and std of 1
 # x_std = (x - mean) / std
 stdsc = StandardScaler()
 X_train_std = stdsc.fit_transform(X_train)
 X_test_std = stdsc.transform(X_test)
 
 knn = KNeighborsClassifier(n_neighbors=2)
-sbs = SBS(knn, feature_lim=1)
+sbs = SBS(knn, feature_lim=1, random_state=0)
 sbs.fit(X_train_std, y_train)
 
 k_feat = [len(k) for k in sbs.best_combinations]
@@ -79,53 +79,3 @@ plt.ylabel('Accuracy')
 plt.xlabel('Number of features')
 plt.grid()
 plt.show()
-
-
-
-# class SBS:
-#     def __init__(self, estimator, k_features, scoring=accuracy_score, test_size=0.25, random_state=0):
-#         self.scoring = scoring
-#         self.estimator = clone(estimator)
-#         self.k_features = k_features
-#         self.test_size = test_size
-#         self.random_state = random_state
-#
-#     def fit(self, X, y):
-#         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.test_size, random_state=self.random_state)
-#         dim = X_train.shape[1]
-#         self.indices_ = tuple(range(dim))
-#         self.subsets_ = [self.indices_]
-#         score = self._calc_score(X_train, y_train, X_test, y_test, self.indices_)
-#         self.scores_ = [score]
-#
-#         while dim > self.k_features:
-#             scores = []
-#             subsets = []
-#
-#             for p in combinations(self.indices_, r=dim-1):
-#                 score = self._calc_score(X_train, y_train, X_test, y_test, p)
-#                 scores.append(score)
-#                 subsets.append(p)
-#
-#             best = np.argmax(scores)
-#             self.indices_ = subsets[best]
-#             self.subsets_.append(self.indices_)
-#
-#             dim -= 1
-#             self.scores_.append(scores[best])
-#         self.k_score_ = self.scores_[-1]
-#
-#         return self
-#
-#     def transform(self, X):
-#         return X[:, self.indices_]
-#
-#     def _calc_score(self, X_train, y_train, X_test, y_test, indices):
-#         self.estimator.fit(X_train[:, indices], y_train)
-#         y_pred = self.estimator.predict(X_test[:, indices])
-#         score = self.scoring(y_test, y_pred)
-#         return score
-# _____________________________________________________________________________________________________________
-
-
-
