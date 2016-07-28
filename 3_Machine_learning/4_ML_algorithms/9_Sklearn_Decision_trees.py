@@ -8,7 +8,7 @@
 # I - impurity measure
 # Np - total number os members in the parent node
 # Nj - total number of members in the jth child node
-# Therefore, on the high level, total infomration gain is the difference between parent node impurity and
+# Therefore, on the high level, total information gain is the difference between parent node impurity and
 # the impurity of the child nodes combined
 
 # Now, the three impurity measures that are used are:
@@ -72,7 +72,7 @@ y = iris.target  # in this dataset the labels are stored as 0, 1, 2 for three fl
 # 30% (45 samples) will go into the test set, 70% (105 samples) will go into training set
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
-tree = DecisionTreeClassifier(criterion='entropy', random_state=0)
+tree = DecisionTreeClassifier(criterion='entropy', random_state=0, max_depth=3)
 tree.fit(X_train, y_train)
 X_combined = np.vstack((X_train, X_test))
 y_combined = np.hstack((y_train, y_test))
@@ -83,3 +83,4 @@ plt.legend(loc='upper left')
 plt.show()
 
 export_graphviz(tree, out_file='tree.dot', feature_names=['petal length', 'petal width'])
+
