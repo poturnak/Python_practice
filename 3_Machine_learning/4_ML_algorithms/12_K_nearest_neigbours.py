@@ -7,14 +7,10 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
-from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn import datasets
 from matplotlib.colors import ListedColormap
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import export_graphviz
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
 def plot_decision_regions(X, y, classifier, resolution=0.02, test_idx=None):
