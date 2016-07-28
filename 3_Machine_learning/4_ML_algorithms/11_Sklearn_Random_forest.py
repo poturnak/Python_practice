@@ -16,23 +16,18 @@
 #
 # However, there are other parameters that we can optimize:
 #  - number of samples we draw for each split (n)
-#  - number of feature that we ramdomely choose for the analysis (d)
+#  - number of features that we randomly choose for the analysis (d)
 
 # Large n gives us higher variance, thus is potential to overfitting
 # Smaller n gives us higher bias
 # Typically n is chosen to be equal to the size of original sample
 # d is chosen to be d = sqrt(m), m is the total number of features in the training dataset
 
-
 import numpy as np
 from matplotlib import pyplot as plt
-from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
-from sklearn.preprocessing import StandardScaler
 from sklearn import datasets
 from matplotlib.colors import ListedColormap
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import export_graphviz
 from sklearn.ensemble import RandomForestClassifier
 
 def plot_decision_regions(X, y, classifier, resolution=0.02, test_idx=None):
