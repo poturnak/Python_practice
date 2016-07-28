@@ -1,14 +1,26 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
 # with the decision tree we start at the root of the tree and then we split the data based on the feature
 # that gives us the largest information gain
-# in order not to overfit you will define the maximu tree length
+# in order not to overfit you will define the maximum tree depth
+
+# Here is the objective function that will maximize the infomration gain at each split
+# IG = I(Dp) - sum(j=1, m)(Nj/Np * I(DJ))
+# I - impurity measure
+# Np - total number os members in the parent node
+# Nj - total number of members in the jth child node
+# Therefore, on the high level, total infomration gain is the difference between parent node impurity and
+# the impurity of the child nodes combined
+
+# Now, the three impurity measures that are used are:
+# Gini impurity
+# Entropy
+#   -p * np.log2(p) - (1 - p) * np.log2((1 - p))
+# Classification Error
 
 
 import numpy as np
 from matplotlib import pyplot as plt
-from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
-from sklearn.preprocessing import StandardScaler
 from sklearn import datasets
 from matplotlib.colors import ListedColormap
 from sklearn.tree import DecisionTreeClassifier
