@@ -1,4 +1,8 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
+# with the decision tree we start at the root of the tree and then we split the data based on the feature
+# that gives us the largest information gain
+# in order not to overfit you will define the maximu tree length
+
 
 import numpy as np
 from matplotlib import pyplot as plt
