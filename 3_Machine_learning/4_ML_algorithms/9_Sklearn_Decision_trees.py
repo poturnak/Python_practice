@@ -12,11 +12,22 @@
 # the impurity of the child nodes combined
 
 # Now, the three impurity measures that are used are:
-# Gini impurity
-# Entropy
-#   -p * np.log2(p) - (1 - p) * np.log2((1 - p))
-# Classification Error
-
+# 1. Entropy
+#   Ent(t) = -sum(i=1, c)(p(i|t) * log2 p(i|t))
+#   For 2 classes the entropy is the following:
+#   Ent(t) = -p * np.log2(p) - (1 - p) * np.log2((1 - p))
+#   p(i|t) - is the proportion of the samples that belongs to class c for a particular node t
+#   Therefore, entropy is the highest if we have uniform distribution
+#   Entropy is 0 if we have all samples belonging to the same class
+#   As a result, entropy tries to maximize the mutual infomration in the tree
+#
+# 2. Gini impurity
+#   Gini(t) = sum(i=1, c) (p(i|t) * (1 - p(i|t))
+#   Therefore, Gini impurity tries to minimize the possibility of misclassification
+#   Again, if the classes are perfectly mixed, the Gini impurity is maximal, it will be 0.5
+#
+# 3. Classification Error
+#   Error = 1 - max(p(i|t))
 
 import numpy as np
 from matplotlib import pyplot as plt
