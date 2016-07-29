@@ -41,7 +41,7 @@ print(imputed_data)
 # There can be numerical data or categorical data
 # Categorical can be:
 #  - ordinal - values that can be further sorted or compared (T shirt sizes for example)
-#  - nominal - values that can not be sorted or compared (colors fo T shirst for example)
+#  - nominal - values that can not be sorted or compared (colors fo T shirts for example)
 
 df1 = pd.DataFrame([
     ['green', 'M', 10.1, 'class1'],
@@ -72,6 +72,8 @@ print(df1)
 
 # Let's now perform one-hot encoding for nominal features
 X = df1[['color', 'size', 'price']].values
+print('Here it is')
+print(X)
 color_le = LabelEncoder()
 X[:, 0] = color_le.fit_transform(X[:, 0])
 print(X)
