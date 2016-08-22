@@ -2,7 +2,6 @@
 
 # LDA is analogous to PCA
 # LDA tries to find discriminants that optimize the class separability
-# LDA is an unsupervised algorithm, whereas PCA is supervised
 
 # The assumption for LDA is that data is normally distributed
 # We also assume that the classes have similar covariances and that features are statistically independent
