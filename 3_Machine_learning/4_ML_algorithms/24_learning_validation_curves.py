@@ -66,6 +66,7 @@ train_scores, test_scores = validation_curve(
                 param_range=param_range,
                 cv=10)
 
+
 train_mean = np.mean(train_scores, axis=1)
 train_std = np.std(train_scores, axis=1)
 test_mean = np.mean(test_scores, axis=1)
