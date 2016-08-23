@@ -24,6 +24,10 @@ pipe_lr = Pipeline([('scl', StandardScaler()), ('clf', LogisticRegression(penalt
 # Subsets of the training set with varying sizes will be used to train the estimator and a score for
 # each training subset size and the test set will be computed.
 # Afterwards, the scores will be averaged over all k runs for each training subset size.
+# train-sizes define that we split all data set into 10 chunks
+# cv defines that each subset of those 10 mentioned earlier is split into the 10 folds
+# 1 fold will be used for cross validation
+# by default the learning_curve uses stratified cross validation
 
 train_sizes, train_scores, test_scores = learning_curve(estimator=pipe_lr,
                                                         X=X_train,
@@ -31,9 +35,6 @@ train_sizes, train_scores, test_scores = learning_curve(estimator=pipe_lr,
                                                         train_sizes=np.linspace(0.1, 1.0, 10),
                                                         cv=10,
                                                         n_jobs=1)
-print(test_scores)
-print(train_scores)
-
 train_mean = np.mean(train_scores, axis=1)
 train_std = np.std(train_scores, axis=1)
 test_mean = np.mean(test_scores, axis=1)
