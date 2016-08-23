@@ -19,6 +19,12 @@ y = le.fit_transform(y)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=1)
 pipe_lr = Pipeline([('scl', StandardScaler()), ('clf', LogisticRegression(penalty='l2', random_state=0))])
+
+# A cross-validation generator splits the whole dataset k times in training and test data.
+# Subsets of the training set with varying sizes will be used to train the estimator and a score for
+# each training subset size and the test set will be computed.
+# Afterwards, the scores will be averaged over all k runs for each training subset size.
+
 train_sizes, train_scores, test_scores = learning_curve(estimator=pipe_lr,
                                                         X=X_train,
                                                         y=y_train,
