@@ -1,5 +1,5 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
-# This difference for Adaline that we use net-input values to undate the weights
+# This difference for Adaline that we use net-input values to update the weights
 # Once you get net input, you subtract the target value and then adjust weights
 # For perceptron you convert predicted value to step function first, then you update weights
 
