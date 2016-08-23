@@ -11,12 +11,19 @@
 # k-1 folds are used to train the model
 # 1 fold is used for testing
 
-# Here is how we will use the system:
-#  - split the data set into folds (say 10), 9 are used to train, 1 is used to test
-#  - randomly choose the test fold, train the model on the remaining 9, test using test fold, estimate parameter
-#  - tune the parameters of the model
-#  - repeat the previous step
-#  - repeat until we tested all parameters
-#  - choose the model parameters
-#  - train the model again using 80% of the data set, test using remaining 20%
+# in k-fold cross-validation, the original sample is randomly partitioned into k equal sized subsamples.
+# Of the k subsamples, a single subsample is retained as the validation data for testing the model,
+# and the remaining k − 1 subsamples are used as training data.
+# The cross-validation process is then repeated k times (the folds),
+# with each of the k subsamples used exactly once as the validation data.
+# The k results from the folds can then be averaged to produce a single estimation.
+# The advantage of this method over repeated random sub-sampling (see below) is that all observations
+# are used for both training and validation, and each observation is used for validation exactly once.
+# 10-fold cross-validation is commonly used,[6] but in general k remains an unfixed parameter.
+
+# When k=n (the number of observations), the k-fold cross-validation is exactly the leave-one-out cross-validation.
+
+# In stratified k-fold cross-validation, the folds are selected so that the mean
+# response value is approximately equal in all the folds. In the case of a dichotomous classification,
+# this means that each fold contains roughly the same proportions of the two types of class labels.
 
