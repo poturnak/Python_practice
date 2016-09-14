@@ -8,12 +8,12 @@
 # in the case below, 1 means there is alert, 0 means there is no alert
 
 #                   Predicted class
-#               0                   1
-#        0   True positive       False positive
+#               1                   0
+#        1   True positive       False negative
 #
 # Actual
 # Class
-#        1   False negative      True negative
+#        0   False positive      True negative
 #
 #
 # Now we can take a look at how we calculate the metrics
@@ -27,10 +27,10 @@
 # TPR = TP / (TP + FN)
 #
 # Precision
-# PRE = TP / (TP + FP) (how many alerts we are over generating)
+# PRE = TP / (TP + FP) (how many of the selected items are relevant, meaning how many are actual alerts)
 #
 # Recall
-# REC = TP / (TP + FN) (how many of the true alerts we missed)
+# REC = TP / (TP + FN) (how many of the relevant items were selected, meaning how many alerts we picked)
 #
 # F1 score
 # F1 = 2 * (PRE * REC) / (PRE + REC)
