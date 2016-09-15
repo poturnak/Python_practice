@@ -6,6 +6,7 @@
 # we can also build the confusion matrix
 # this matrix will depend on which class is positive and which is negative
 # in the case below, 1 means there is alert, 0 means there is no alert
+# !!!!!! remember that the positive class in scikit learn is 1, same as on the picture below
 
 #                   Predicted class
 #               1                   0
@@ -21,10 +22,10 @@
 # Accuracy = 1 - Error
 #
 # False positive rate
-# FPR = FP / (FP + TN)
+# FPR = FP / (FP + TN) (how many items we picked from all irrelevant items)
 #
 # True positive rate
-# TPR = TP / (TP + FN)
+# TPR = TP / (TP + FN) (same as recall)
 #
 # Precision
 # PRE = TP / (TP + FP) (how many of the selected items are relevant, meaning how many are actual alerts)
@@ -35,12 +36,6 @@
 # F1 score
 # F1 = 2 * (PRE * REC) / (PRE + REC)
 
-
-
-
-
-
-
 from matplotlib import pyplot as plt
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
@@ -49,6 +44,7 @@ from sklearn.cross_validation import train_test_split
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import confusion_matrix
+from sklearn.metrics import precision_score, recall_score, f1_score
 
 df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data',
                  header=None)
@@ -76,3 +72,7 @@ plt.ylabel('true label')
 plt.tight_layout()
 # plt.savefig('./figures/confusion_matrix.png', dpi=300)
 plt.show()
+
+print('Precision: %.3f' % precision_score(y_true=y_test, y_pred=y_pred))
+print('Recall: %.3f' % recall_score(y_true=y_test, y_pred=y_pred))
+print('F1: %.3f' % f1_score(y_true=y_test, y_pred=y_pred))
