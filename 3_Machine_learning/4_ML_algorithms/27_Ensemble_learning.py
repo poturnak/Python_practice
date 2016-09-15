@@ -92,12 +92,10 @@ class MajorityVoteClassifier(BaseEstimator, ClassifierMixin):
 
     def predict(self, X):
         """ Predict class labels for X.
-
         Parameters
         ----------
         X : {array-like, sparse matrix}, shape = [n_samples, n_features]
             Matrix of training samples.
-
         Returns
         ----------
         maj_vote : array-like, shape = [n_samples]
