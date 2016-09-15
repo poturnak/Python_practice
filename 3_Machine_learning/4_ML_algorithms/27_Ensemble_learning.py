@@ -1,6 +1,6 @@
 #! /library/Frameworks/Python.framework/Versions/3.5/python3.5
 
-# The goal of ensemble learning is to combine classifiers into meta clssifier with a better generalization
+# The goal of ensemble learning is to combine classifiers into meta classifier with a better generalization
 # performance.
 # The most popular ensemble method is majority voting principle.
 
@@ -16,7 +16,6 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.externals import six
 from sklearn.base import clone
 from sklearn.pipeline import _name_estimators
-import operator
 import numpy as np
 
 # Let's first take a look at how majority voting needs ot be done
@@ -42,26 +41,21 @@ print(np.argmax(p))
 
 class MajorityVoteClassifier(BaseEstimator, ClassifierMixin):
     """ A majority vote ensemble classifier
-
     Parameters
     ----------
     classifiers : array-like, shape = [n_classifiers]
       Different classifiers for the ensemble
-
     vote : str, {'classlabel', 'probability'} (default='label')
       If 'classlabel' the prediction is based on the argmax of
         class labels. Else if 'probability', the argmax of
         the sum of probabilities is used to predict the class label
         (recommended for calibrated classifiers).
-
     weights : array-like, shape = [n_classifiers], optional (default=None)
       If a list of `int` or `float` values are provided, the classifiers
       are weighted by importance; Uses uniform weights if `weights=None`.
-
     """
 
     def __init__(self, classifiers, vote='classlabel', weights=None):
-
         self.classifiers = classifiers
         self.named_classifiers = {key: value for key, value in _name_estimators(classifiers)}
         self.vote = vote
@@ -69,31 +63,24 @@ class MajorityVoteClassifier(BaseEstimator, ClassifierMixin):
 
     def fit(self, X, y):
         """ Fit classifiers.
-
         Parameters
         ----------
         X : {array-like, sparse matrix}, shape = [n_samples, n_features]
             Matrix of training samples.
-
         y : array-like, shape = [n_samples]
             Vector of target class labels.
-
         Returns
         -------
         self : object
-
         """
-        if self.vote not in ('probability', 'classlabel'): raise ValueError("vote must be 'probability' or 'classlabel'"
-                             "; got (vote=%r)"
-                             % self.vote)
+        if self.vote not in ('probability', 'classlabel'):
+            raise ValueError("vote must be 'probability' or 'classlabel'""; got (vote=%r)"% self.vote)
 
         if self.weights and len(self.weights) != len(self.classifiers):
-            raise ValueError('Number of classifiers and weights must be equal'
-                             '; got %d weights, %d classifiers'
+            raise ValueError('Number of classifiers and weights must be equal''; got %d weights, %d classifiers'
                              % (len(self.weights), len(self.classifiers)))
 
-        # Use LabelEncoder to ensure class labels start with 0, which
-        # is important for np.argmax call in self.predict
+        # Use LabelEncoder to ensure class labels start with 0, which is important for np.argmax call in self.predict
         self.lablenc_ = LabelEncoder()
         self.lablenc_.fit(y)
         self.classes_ = self.lablenc_.classes_
