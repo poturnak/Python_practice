@@ -99,9 +99,8 @@ class MajorityVoteClassifier(BaseEstimator, ClassifierMixin):
         Returns
         ----------
         maj_vote : array-like, shape = [n_samples]
-            Predicted class labels.
+            Predicted class labels. """
 
-        """
         if self.vote == 'probability':
             maj_vote = np.argmax(self.predict_proba(X), axis=1)
         else:
