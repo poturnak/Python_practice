@@ -70,3 +70,25 @@ print(bag.toarray())
 # the value associated with the position will tell us how many times the word is seen
 print(bag)
 
+# unigram model is when you have one word representing a token
+# n-gram model can can have multiple words representing a token
+
+# oftentimes we analyze text and there are words occuring in both positive class and negative class documents
+# we need to down-weight those types of words
+# for that purpose we will look at tf-idf (term frequency inverse document frequency)
+
+# tf-idf (t,d) = tf(t,d) * idf(t,d)
+# idf(t,d) = log(n / (1 + df(d,t)))
+#  - t is the term
+#  - d is the document
+#  - tf - term frequency, how many times word t occures in document d
+#  - idf - inverse document frequency
+#          n is the total number of documents
+#          df(d,t) - number of documents that contain the word t
+
+from sklearn.feature_extraction.text import TfidfTransformer
+
+tfidf = TfidfTransformer(use_idf=True, norm='l2', smooth_idf=True)
+np.set_printoptions(precision=2)
+print(tfidf.fit_transform(count.fit_transform(docs)).toarray())
+
