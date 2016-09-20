@@ -92,3 +92,11 @@ tfidf = TfidfTransformer(use_idf=True, norm='l2', smooth_idf=True)
 np.set_printoptions(precision=2)
 print(tfidf.fit_transform(count.fit_transform(docs)).toarray())
 
+# you can get the following insights about tfidf
+# if the tfidf values are more or less the same, means the word is noise (occur everywhere + in loger sentences there are more
+# occurneces of that word)
+# if the values are different for one word across documents, means there is shorter snetence and the number
+# of occurences is more or less the same
+
+
+
