@@ -96,7 +96,17 @@ print(tfidf.fit_transform(count.fit_transform(docs)).toarray())
 # if the tfidf values are more or less the same, means the word is noise (occur everywhere + in loger sentences there are more
 # occurneces of that word)
 # if the values are different for one word across documents, means there is shorter snetence and the number
-# of occurences is more or less the same
+# of occurrences is more or less the same
 
+# --------------------------------------------------------------------------
+# the first thing is to clean the data by stripping off all the unwanted characters
 
+import re
+def preprocessor(text):
+    text = re.sub('<[^>]*>', '', text)
+    emoticons = re.findall('(?::|;|=)(?:-)?(?:\)|\(|D|P)', text)
+    text = re.sub('[\W]+', ' ', text.lower()) + ' '.join(emoticons).replace('-', '')
+    return text
+
+# let's confirm that the preprocessor works correctly
 

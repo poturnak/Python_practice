@@ -29,7 +29,7 @@
 # [] are used to create the class
 # [.] - if '.' is used within the brackets, it means literally '.', not any character
 # [asdASD] - look for letters 'a', 's', 'd', 'A', 'S', 'D'
-# [a-zA-z0-9] - look for a to a, A to Z, and 0 to 9
+# [a-zA-z0-9] - look for a to z, A to Z, and 0 to 9
 # [asd.-] - will match letters and '.' and '-'
 # [^a] - by placing the '^' at the beginning, you make a negative class (not 'a')
 # () - used to create groups; allows to extract sections of matched text
