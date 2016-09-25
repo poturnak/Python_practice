@@ -7,8 +7,7 @@ import time
 def timing_function(some_function):
 
     """
-    Outputs the time a function takes
-    to execute.
+    Outputs the time a function takes to execute.
     """
 
     def wrapper():
@@ -37,13 +36,12 @@ from time import sleep
 def sleep_decorator(function):
 
     """
-    Limits how fast the function is
-    called.
+    Limits how fast the function is called.
     """
 
     def wrapper(*args, **kwargs):
         sleep(2)
-        return function(*args, **kwargs)
+        function(*args, **kwargs)
     return wrapper
 
 
@@ -55,3 +53,5 @@ print(print_number(222))
 
 for num in range(1, 6):
     print(print_number(num))
+
+# ________________________________________________________________________________
