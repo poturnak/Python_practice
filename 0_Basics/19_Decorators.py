@@ -47,11 +47,11 @@ def sleep_decorator(function):
 
 @sleep_decorator
 def print_number(num):
-    return num
+    print(num)
 
-print(print_number(222))
+print_number(222)
 
 for num in range(1, 6):
-    print(print_number(num))
+    print_number(num)
 
 # ________________________________________________________________________________
