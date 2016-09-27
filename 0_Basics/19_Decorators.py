@@ -46,8 +46,8 @@ def sleep_decorator(function):
 
 
 @sleep_decorator
-def print_number(num):
-    print(num)
+def print_number(num1):
+    print(num1)
 
 print_number(222)
 
@@ -55,3 +55,22 @@ for num in range(1, 6):
     print_number(num)
 
 # ________________________________________________________________________________
+from functools import wraps
+from flask import g, request, redirect, url_for
+
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if g.user is None:
+            return redirect(url_for('login', next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
+
+
+@app.route('/secret')
+@login_required
+def secret():
+    pass
+# ________________________________________________________________________________
+
