@@ -1,5 +1,5 @@
 # json.loads() and json.dumps() - work with json data and write it to variables
-# json.load() and json.dump() - worj with json data and write it to files
+# json.load() and json.dump() - work with json data and write it to files
 
 import json
 

@@ -35,8 +35,6 @@
 # requests.post('url', data=json.dumps(dictionary) - passing data as a string
 # ===================================================================================================
 
-import requests, json, pprint
-
 # getting the web page into the variable res
 # also printing the web page contents
 # res = requests.get('http://www.google.com/')
@@ -75,17 +73,18 @@ import requests, json, pprint
 # print(r.url)
 # print(r.status_code)
 
-r = requests.get('https://api.github.com/events')
-for i, j in r.request.headers.items():
-    print('{}: {}'.format(i,j))
+# r = requests.get('https://api.github.com/events')
+# for i, j in r.request.headers.items():
+#     print('{}: {}'.format(i,j))
+#
+# str = json.loads(r.text)
+# pprint.pprint(r.json())
+#
+# r = requests.get('http://www.facebook.com')
+# print(r.history)
+# for i, j in r.headers.items():
+#     print('{}: {}'.format(i,j))
+# print('\n\n')
+#
+# print(r.cookies)
 
-str = json.loads(r.text)
-pprint.pprint(r.json())
-
-r = requests.get('http://www.facebook.com')
-print(r.history)
-for i, j in r.headers.items():
-    print('{}: {}'.format(i,j))
-print('\n\n')
-
-print(r.cookies)
